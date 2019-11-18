@@ -10,9 +10,9 @@ class LaundryController extends Controller
     public function index()
     {
         $laundries = DB::table('laundries')
-                        ->select('username','from','to','comment')
+                        ->select('id','username as title','start','end')
                         ->get();
-
+               
         return view('laundries', compact('laundries'));
     }
 }
