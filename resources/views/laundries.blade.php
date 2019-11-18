@@ -124,25 +124,51 @@
                         }
                     </script>
                 </div>
+
                 <div class='column'>
                     <h3 class="title is-3">Mosásaim</h3>
-                    <table class="table is-striped">
-                        <tr>
-                            <td>Eleje</td>
-                            <td>Vége</td>
-                            <td>Szerkesztés</td>
-                        </tr>
-                        @foreach($user_laundries as $laundry)
+                    <table class="table is-striped is-bordered is-hoverable">
+                        <thead>
                             <tr>
-                                <td>{{ $laundry->start }}</td>
-                                <td>{{ $laundry->end }}</td>
-                                <td>törlés</td>
+                                <th>Eleje</th>
+                                <th>Vége</th>
+                                <th>Szerkesztés</th>
                             </tr>
-                        @endforeach
+                        </thead>
+                        <tbody>
+                            @foreach($user_laundries as $laundry)
+                                <tr>
+                                    <td>{{ $laundry->start }}</td>
+                                    <td>{{ $laundry->end }}</td>
+                                    <td><button id='{{ $laundry->id }}' onclick='deleteLaundry(this.id)'>Törlés</button></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
+
+                    <script>
+                        function deleteLaundry(id) {
+                            if(!confirm("Biztos, hogy törlöd ezt a mosást? Ezt nem tudod később visszavonni.")) {
+                            } else {
+                                $.ajax({
+                                    type: 'post',
+                                    data: { _token: '{{ csrf_token() }}', laundryID: id},
+                                    url: '{{ route("deleteLaundry") }}',
+                                    success: function(result) {
+                                        window.location.reload();
+                                    },
+                                    error: function(result) {
+                                        alert('Something went wrong.');
+                                    }
+                                })                                    
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>
+
+        <hr>
 
         <div class="section">
             <h3 class='title is-3'>Naptár</h3>

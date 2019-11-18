@@ -49,4 +49,12 @@ class LaundryController extends Controller
             return response()->json(['success' => 'true']);
         }
     }
+
+    public function delete() {
+        $id = request('laundryID');
+
+        DB::table('laundries')
+            ->where('id', '=', $id)
+            ->delete();
+    }
 }

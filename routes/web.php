@@ -13,3 +13,5 @@
 
 Route::get('/', 'LaundryController@index');
 Route::post('/newlaundry', 'LaundryController@insert')->name('newLaundry');
+Route::post('/deletelaundry', 'LaundryController@delete')->name('deleteLaundry');
+
