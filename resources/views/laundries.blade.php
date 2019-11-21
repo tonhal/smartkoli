@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="has-navbar-fixed-top">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mosások</title>
-    <script src='{{url('/add-on/jquery-3.4.1.min.js')}}'></script>
-    <script src='{{url('/add-on/moment.js')}}'></script>
-    <script src='{{url('/add-on/fullcalendar.js')}}'></script>
-    
-    
-    <link rel="stylesheet" type="text/css" href="{{url('/css/bulma.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('/css/fullcalendar.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('/css/laundries.css')}}">
+    <title>SmartKoli - Mosások</title>  
+    @include('layouts.headers')
 </head>
 <body>
     @include('layouts.navbar')
@@ -24,7 +14,7 @@
                     <h3 class='title is-3'>Új mosás</h3>
 
                     <form action='javascript:newLaundry()'>
-                        <label class='label' for='date'>Set the time</label>
+                        <label class='label' for='date'>Állítsd be az időpontot: <span style='color: red'>*</span></label>
                         <input class='input' type='date' name='date' id='date' style='width: 30%' required>
                         <div class='select'>
                             <select name='start_time' id='start_time' required>
@@ -100,9 +90,10 @@
                             </select>
                         </div>
                         <br>
-                        <label class='label' for='comment'>Add a comment</label>
-                        <input class='input' type='text' name='comment' id='comment' placeholder='Comment'>
+                        <label class='label' for='comment'>Írj egy kommentet:</label>
+                        <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>
                         <input class='button is-primary' type='submit' value='Hozzáadás'>
+                        <p><span style='color: red'>*</span> kötelező adatok</p>
                     </form>
 
                     <script>
@@ -196,7 +187,8 @@
                         firstDay: 1,
                         minTime: '07:00:00',
                         maxTime: '23:00:00',
-                        events: @json($laundries)
+                        events: @json($laundries),
+                        eventColor: 'hsl(204, 86%, 53%)'
                     })
                 });
             </script>
