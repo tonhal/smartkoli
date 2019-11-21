@@ -14,9 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('/css/laundries.css')}}">
 </head>
 <body>
-    <div id='main' class='container'>
-        <h1 class='title is-1'>Mosások</h1>
-        
+    <div id='main' class='container'>        
         <div class='section'>
             <div class='columns'>
                 <div class='column'>
@@ -124,6 +122,8 @@
                         }
                     </script>
                 </div>
+
+                <div class="vline"></div>
 
                 <div class='column'>
                     <h3 class="title is-3">Mosásaim</h3>

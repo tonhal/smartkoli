@@ -8,3 +8,11 @@ hr {
     width: 90%;
     margin: 0px auto 0px auto;
 }
+
+.vline {
+    border-left: 2px solid whitesmoke;
+}
+
+h3 {
+    padding-left: 0.8em;
+}
