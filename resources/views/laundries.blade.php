@@ -114,6 +114,7 @@
                                 },
                                 error: function(data) {
                                     alert(data.responseJSON.error);
+                                    $('#date, #start_time, #end_time, #comment, #submit').prop('disabled', false);
                                 }
                             });
                         }

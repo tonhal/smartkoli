@@ -21,28 +21,14 @@
                 <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1BrPCjQ9-M2iomLdU1OXIHOhCMwranRmO58yU1Yj-L58/edit?usp=sharing" target="_blank">
                     Vendégtáblázat
                 </a>
-        
-                <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    More
+
+                <a class="navbar-item" href="https://trello.com/b/iRXaTCho/koli" target="_blank">
+                    Fáj a pöcsöm!
                 </a>
-        
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                        About
-                        </a>
-                        <a class="navbar-item">
-                        Jobs
-                        </a>
-                        <a class="navbar-item">
-                        Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                        Report an issue
-                        </a>
-                    </div>
-                </div>
+
+                <a class="navbar-item" href="https://trello.com/b/iRXaTCho/koli" target="_blank">
+                    Dokumentumok
+                </a>
             </div>
         
             <div class="navbar-end">
