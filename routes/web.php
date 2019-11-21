@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'LaundryController@index');
+Route::get('/', 'LaundryController@index')->middleware('auth');
 Route::post('/newlaundry', 'LaundryController@insert')->name('newLaundry');
 Route::post('/deletelaundry', 'LaundryController@delete')->name('deleteLaundry');
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-navbar-fixed-top">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,14 @@
     <script src='{{url('/add-on/moment.js')}}'></script>
     <script src='{{url('/add-on/fullcalendar.js')}}'></script>
     
+    
     <link rel="stylesheet" type="text/css" href="{{url('/css/bulma.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('/css/fullcalendar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('/css/laundries.css')}}">
 </head>
 <body>
+    @include('layouts.navbar')
+
     <div id='main' class='container'>        
         <div class='section'>
             <div class='columns'>
@@ -21,7 +24,7 @@
                     <h3 class='title is-3'>Új mosás</h3>
 
                     <form action='javascript:newLaundry()'>
-                        <input class='input' type='text' name='user' id='user' placeholder='Username' required>
+                        <label class='label' for='date'>Set the time</label>
                         <input class='input' type='date' name='date' id='date' style='width: 30%' required>
                         <div class='select'>
                             <select name='start_time' id='start_time' required>
@@ -63,7 +66,7 @@
                             <select name='end_time' id='end_time'>
                                 <option value="07:00:00">7:00</option>
                                 <option value="07:30:00">7:30</option>
-                                <option value="08:00:00">8:00</option>
+                                <option value="08:00:00" selected="selected">8:00</option>
                                 <option value="08:30:00">8:30</option>
                                 <option value="09:00:00">9:00</option>
                                 <option value="09:30:00">9:30</option>
@@ -96,8 +99,10 @@
                                 <option value="23:00:00">22:00</option>
                             </select>
                         </div>
+                        <br>
+                        <label class='label' for='comment'>Add a comment</label>
                         <input class='input' type='text' name='comment' id='comment' placeholder='Comment'>
-                        <input class='button' type='submit' value='Új mosás'>
+                        <input class='button is-primary' type='submit' value='Hozzáadás'>
                     </form>
 
                     <script>
@@ -140,7 +145,7 @@
                                 <tr>
                                     <td>{{ $laundry->start }}</td>
                                     <td>{{ $laundry->end }}</td>
-                                    <td><button id='{{ $laundry->id }}' onclick='deleteLaundry(this.id)'>Törlés</button></td>
+                                    <td class='button-column'><button id='{{ $laundry->id }}' class='button is-danger is-small' onclick='deleteLaundry(this.id)'>Törlés</button></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -197,5 +202,8 @@
             </script>
         </div>
     </div>
+
+    @include('layouts.footer')
+
 </body>
 </html>

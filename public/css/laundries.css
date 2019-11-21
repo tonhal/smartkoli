@@ -13,6 +13,10 @@ hr {
     border-left: 2px solid whitesmoke;
 }
 
-h3 {
-    padding-left: 0.8em;
+input {
+    margin-bottom: 0.8em;
+}
+
+.button-column {
+    text-align: center !important;
 }

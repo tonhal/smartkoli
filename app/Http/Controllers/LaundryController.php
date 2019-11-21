@@ -10,13 +10,15 @@ class LaundryController extends Controller
 {
     public function index()
     {
+
         $laundries = DB::table('laundries')
-            ->select('id','username as title','start','end')
+            ->join('users', 'laundries.user_id', '=', 'users.id')
+            ->select('laundries.id','users.name as title','laundries.start','laundries.end')
             ->get();
 
         $user_laundries = DB::table('laundries')
-            ->select('id','username','start','end')
-            ->where('username','=','agofekete')
+            ->select('id','user_id','start','end')
+            ->where('user_id','=', auth()->id())
             ->whereRaw('DATE(start) >= DATE(NOW())')
             ->orderByRaw('3')
             ->get();
@@ -26,7 +28,7 @@ class LaundryController extends Controller
 
     public function insert()
     {
-        $username = request('username');
+        $user_id = auth()->id();
         $start_time = new DateTime(request('start_time'));
         $end_time = new DateTime(request('end_time'));
         $comment = request('comment');
@@ -43,7 +45,7 @@ class LaundryController extends Controller
             return response()->json(['error' => 'Valami nem stimmel az időpontokkal!'], 404);
         } else {
             DB::table('laundries')->insert([
-            'username' => $username, 'start' => $start_time, 'end' => $end_time, 'comment' => $comment
+            'user_id' => $user_id, 'start' => $start_time, 'end' => $end_time, 'comment' => $comment
             ]);
 
             return response()->json(['success' => 'true']);
