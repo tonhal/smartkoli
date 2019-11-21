@@ -1,9 +1,9 @@
-<nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://jozsefvaros.lutheran.hu/">
-                MANDÁK
-            </a>
+            <p class="navbar-item">
+                <img src='{{ asset("images/kolilogok/szoveg_nagy.png") }}'>
+            </p>
         
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -14,12 +14,12 @@
         
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
-                Home
+                <a class="navbar-item" href="/">
+                    Mosások
                 </a>
         
-                <a class="navbar-item">
-                Documentation
+                <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1BrPCjQ9-M2iomLdU1OXIHOhCMwranRmO58yU1Yj-L58/edit?usp=sharing" target="_blank">
+                    Vendégtáblázat
                 </a>
         
                 <div class="navbar-item has-dropdown is-hoverable">

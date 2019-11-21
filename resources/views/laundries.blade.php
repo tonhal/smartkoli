@@ -15,8 +15,8 @@
 
                     <form action='javascript:newLaundry()'>
                         <label class='label' for='date'>Állítsd be az időpontot: <span style='color: red'>*</span></label>
-                        <input class='input' type='date' name='date' id='date' style='width: 30%' required>
-                        <div class='select'>
+                        <input class='input' type='date' name='date' id='date' required>
+                        <div class='select is-fullwidth' style='width:49%'>
                             <select name='start_time' id='start_time' required>
                                 <option value="07:00:00">7:00</option>
                                 <option value="07:30:00">7:30</option>
@@ -52,8 +52,8 @@
                                 <option value="22:00:00">22:30</option>
                             </select>
                         </div>
-                        <div class='select' required>
-                            <select name='end_time' id='end_time'>
+                        <div class='select is-fullwidth' style='width:50%' >
+                            <select name='end_time' id='end_time' required>
                                 <option value="07:00:00">7:00</option>
                                 <option value="07:30:00">7:30</option>
                                 <option value="08:00:00" selected="selected">8:00</option>
@@ -92,12 +92,13 @@
                         <br>
                         <label class='label' for='comment'>Írj egy kommentet:</label>
                         <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>
-                        <input class='button is-primary' type='submit' value='Hozzáadás'>
-                        <p><span style='color: red'>*</span> kötelező adatok</p>
+                        <input class='button is-info is-fullwidth' type='submit' id='submit' value='Hozzáadás'>
+                        <p><strong><span style='color: red'>*</span></strong> kötelező adatok</p>
                     </form>
 
                     <script>
                         function newLaundry() {
+                            $('#date, #start_time, #end_time, #comment, #submit').prop('disabled', true);
                             var username = $('#user').val()
                             var start_time = $('#date').val() + ' ' + $('#start_time').val();
                             var end_time = $('#date').val() + ' ' + $('#end_time').val();

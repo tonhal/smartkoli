@@ -35,7 +35,11 @@ hr {
 
 /*CUSTOM FOR THIS VIEW*/
 
-input {
+.time-label {
+    vertical-align: middle;
+}
+
+input, .select {
     margin-bottom: 0.8em;
 }
 
