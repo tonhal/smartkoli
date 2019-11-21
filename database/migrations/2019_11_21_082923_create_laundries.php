@@ -15,7 +15,7 @@ class CreateLaundries extends Migration
     {
         Schema::create('laundries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username')->references('username')->on('users');
+            $table->unsignedBigInteger('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->dateTime('start');
             $table->dateTime('end');
             $table->text('comment')->nullable();
