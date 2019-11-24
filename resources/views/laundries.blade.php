@@ -14,7 +14,7 @@
                     <h3 class='title is-3'>Új mosás</h3>
 
                     <form action='javascript:newLaundry()'>
-                        <label class='label' for='date'>Állítsd be az időpontot: <span style='color: red'>*</span></label>
+                        <label class='label' for='date'>Állítsd be az időpontot:<!-- <span style='color: red'>*</span>--></label>
                         <input class='input' type='date' name='date' id='date' required>
                         <div class='select is-fullwidth' style='width:49%'>
                             <select name='start_time' id='start_time' required>
@@ -90,10 +90,11 @@
                             </select>
                         </div>
                         <br>
-                        <label class='label' for='comment'>Írj egy kommentet:</label>
-                        <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>
+                        <!--<label class='label' for='comment'>Írj egy kommentet:</label>
+                        <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>-->
                         <input class='button is-info is-fullwidth' type='submit' id='submit' value='Hozzáadás'>
-                        <p><strong><span style='color: red'>*</span></strong> kötelező adatok</p>
+                        <!--<p><strong><span style='color: red'>*</span></strong> kötelező adatok</p>-->
+                        <div id='errorMsgDiv'><p id='errorMsg'></p></div>
                     </form>
 
                     <script>
@@ -113,8 +114,9 @@
                                     window.location.reload();
                                 },
                                 error: function(data) {
-                                    alert(data.responseJSON.error);
+                                    //alert(data.responseJSON.error);
                                     $('#date, #start_time, #end_time, #comment, #submit').prop('disabled', false);
+                                    $('#errorMsg').html(data.responseJSON.error).css({"color":"#D8000C","display":"none"}).fadeIn("slow", function () {$(this).delay(2000).fadeOut('slow');});
                                 }
                             });
                         }
@@ -124,25 +126,31 @@
                 <div class="vline"></div>
 
                 <div class='column'>
-                    <h3 class="title is-3">Mosásaim</h3>
-                    <table class="table is-striped is-bordered is-hoverable">
-                        <thead>
-                            <tr>
-                                <th>Eleje</th>
-                                <th>Vége</th>
-                                <th>Szerkesztés</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($user_laundries as $laundry)
+                    <h3 class="title is-3">Közelgő mosásaim</h3>
+                    @if(count($user_laundries))
+                        <table class="table is-striped is-bordered is-hoverable">
+                            <thead>
                                 <tr>
-                                    <td>{{ $laundry->start }}</td>
-                                    <td>{{ $laundry->end }}</td>
-                                    <td class='button-column'><button id='{{ $laundry->id }}' class='button is-danger is-small' onclick='deleteLaundry(this.id)'>Törlés</button></td>
+                                    <th>Nap</th>
+                                    <th>Eleje</th>
+                                    <th>Vége</th>
+                                    <th>Szerkesztés</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach($user_laundries as $laundry)
+                                    <tr>
+                                        <td>{{ $laundry->date }} {{ $laundry->day }}</td>
+                                        <td>{{ $laundry->start }}
+                                        <td>{{ $laundry->end }}</td>
+                                        <td class='button-column'><button id='{{ $laundry->id }}' class='button is-danger is-small' onclick='deleteLaundry(this.id)'>Törlés</button></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>    
+                    @else
+                        <p>Nincsenek mosásaid.</p>
+                    @endif
 
                     <script>
                         function deleteLaundry(id) {
@@ -198,6 +206,5 @@
     </div>
 
     @include('layouts.footer')
-
 </body>
 </html>

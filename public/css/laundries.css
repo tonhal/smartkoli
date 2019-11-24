@@ -46,3 +46,7 @@ input, .select {
 .button-column {
     text-align: center !important;
 }
+
+#errorMsgDiv {
+    height: 1em;
+}

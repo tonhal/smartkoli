@@ -17,7 +17,17 @@ class LaundryController extends Controller
             ->get();
 
         $user_laundries = DB::table('laundries')
-            ->select('id','user_id','start','end')
+            ->select('id','user_id', DB::raw("DATE(start) as date,  
+            CASE
+                WHEN DATE_FORMAT(start,'%a') = 'Mon' THEN 'hétfő'
+                WHEN DATE_FORMAT(start,'%a') = 'Tue' THEN 'kedd'
+                WHEN DATE_FORMAT(start,'%a') = 'Wed' THEN 'szerda'
+                WHEN DATE_FORMAT(start,'%a') = 'Thu' THEN 'csütörtök'
+                WHEN DATE_FORMAT(start,'%a') = 'Fri' THEN 'péntek'
+                WHEN DATE_FORMAT(start,'%a') = 'Sat' THEN 'szombat'
+                WHEN DATE_FORMAT(start,'%a') = 'Sun' THEN 'vasárnap'
+            END as day,
+            DATE_FORMAT(start,'%H:%i') as start, DATE_FORMAT(end,'%H:%i') as end"))
             ->where('user_id','=', auth()->id())
             ->whereRaw('DATE(start) >= DATE(NOW())')
             ->orderByRaw('3')
