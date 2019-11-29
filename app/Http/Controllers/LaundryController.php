@@ -47,9 +47,9 @@ class LaundryController extends Controller
             ->select('id')
             ->where('start', '<', $end_time)
             ->where('end', '>', $start_time)
-            ->count();
+            ->exists();
 
-        if($overlap != 0) {
+        if($overlap) {
             return response()->json(['error' => 'Ennek az idősávnak bizonyos részére már foglalt a mosógép.'], 404);
         } else if(!($start_time < $end_time)) { 
             return response()->json(['error' => 'Valami nem stimmel az időpontokkal!'], 404);

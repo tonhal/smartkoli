@@ -33,6 +33,10 @@ hr {
    width: 32px;
 }
 
+.panel {
+    height: 100%;
+}
+
 /*CUSTOM FOR THIS VIEW*/
 
 .time-label {
@@ -49,4 +53,14 @@ input, .select {
 
 #errorMsgDiv {
     height: 1em;
+}
+
+#upcoming {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#newLaundryForm {
+    height: 100%;
+    width: 100%;
 }

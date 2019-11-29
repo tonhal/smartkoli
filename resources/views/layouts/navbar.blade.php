@@ -1,4 +1,4 @@
-<nav class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
             <p class="navbar-item">
