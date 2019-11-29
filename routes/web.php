@@ -15,6 +15,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'LaundryController@index');
     Route::post('/newlaundry', 'LaundryController@insert')->name('newLaundry');
     Route::post('/deletelaundry', 'LaundryController@delete')->name('deleteLaundry');
+    Route::get('/guests', 'GuestController@index');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });
