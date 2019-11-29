@@ -18,7 +18,7 @@
                     Mosások
                 </a>
         
-                <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1BrPCjQ9-M2iomLdU1OXIHOhCMwranRmO58yU1Yj-L58/edit?usp=sharing" target="_blank">
+                <a class="navbar-item" href="/guests">
                     Vendégtáblázat
                 </a>
 

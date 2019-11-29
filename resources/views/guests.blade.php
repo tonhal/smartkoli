@@ -14,16 +14,7 @@
             <script>
                 $(function() {
                     $('#calendar').fullCalendar({
-
-                        header: {
-                            left:   'today',
-                            center: 'title',
-                            right:  'prev,next'
-                        },
-                        titleFormat: 'MMMM D YYYY',
-                        columnFormat: 'ddd M/D',
-                        defaultView: 'dayGridMonth',
-                        height: 'auto',
+                        events: @json($guests)
                     })
                 });
             </script>

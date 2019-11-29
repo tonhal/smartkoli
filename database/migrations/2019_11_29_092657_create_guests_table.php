@@ -17,6 +17,7 @@ class CreateGuestsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->dateTime('time');
+            $table->tinyInteger('capita')->default(1);
             $table->boolean('guestroom');
             $table->text('comment')->nullable();
             $table->timestamps();
