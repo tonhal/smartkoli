@@ -5,7 +5,10 @@
     @include('layouts.headers')
 </head>
 <body>
+    <!-- NAVBAR ------------->
     @include('layouts.navbar')
+
+<!-- ------ ÚJ MOSÁS ---------------------------------------------------------------------------------------------> 
 
     <div id='main' class='container'>        
         <div class='section'>
@@ -13,12 +16,12 @@
                 <div class='column'>
                     <article class="panel">
                         <p class='panel-heading'>Új mosás</p>
-                            <div class='panel-block'>
-                            <form id='newLaundryForm' action='javascript:newLaundry()'>
-                                <label class='label' for='date'>Állítsd be az időpontot:<!-- <span style='color: red'>*</span>--></label>
-                                <input class='input' type='date' name='date' id='date' required>
-                                <div class='select is-fullwidth' style='width:49%'>
-                                    <select name='start_time' id='start_time' required>
+                        <div class='panel-block'>
+                        <form id='newLaundryForm' action='javascript:newLaundry()'>
+                            <label class='label' for='date'>Állítsd be az időpontot:<!-- <span style='color: red'>*</span>--></label>
+                            <input class='input' type='date' name='date' id='date' required>
+                            <div class='select is-fullwidth' style='width:49%'>
+                                <select name='start_time' id='start_time' required>
                                         <option value="07:00:00">7:00</option>
                                         <option value="07:30:00">7:30</option>
                                         <option value="08:00:00">8:00</option>
@@ -52,9 +55,9 @@
                                         <option value="22:00:00">22:00</option>
                                         <option value="22:00:00">22:30</option>
                                     </select>
-                                </div>
-                                <div class='select is-fullwidth' style='width:50%' >
-                                    <select name='end_time' id='end_time' required>
+                            </div>
+                            <div class='select is-fullwidth' style='width:50%' >
+                                <select name='end_time' id='end_time' required>
                                         <option value="07:00:00">7:00</option>
                                         <option value="07:30:00">7:30</option>
                                         <option value="08:00:00" selected="selected">8:00</option>
@@ -89,16 +92,16 @@
                                         <option value="22:30:00">22:00</option>
                                         <option value="23:00:00">22:00</option>
                                     </select>
-                                </div>
-                                <br>
-                                <!--<label class='label' for='comment'>Írj egy kommentet:</label>
-                                <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>-->
-                                <input class='button is-link is-light is-fullwidth' type='submit' id='submit' value='Hozzáadás'>
-                                <!--<p><strong><span style='color: red'>*</span></strong> kötelező adatok</p>-->
-                                <div id='errorMsgDiv'><p id='errorMsg'></p></div>
+                            </div>
+                            <br>
+                            <!--<label class='label' for='comment'>Írj egy kommentet:</label>
+                            <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>-->
+                            <input class='button is-link is-light is-fullwidth' type='submit' id='submit' value='Hozzáadás'>
+                            <!--<p><strong><span style='color: red'>*</span></strong> kötelező adatok</p>-->
+                            <div id='errorMsgDiv'><p id='errorMsg'></p></div>
                             </form>
-                    </div>
-                </article>
+                            </div>
+                    </article>
 
                     <script>
                         function newLaundry() {
@@ -126,24 +129,26 @@
                     </script>
                 </div>
 
+<!-- ------ TÁBLÁZAT --------------------------------------------------------------------------------------------->                
+
                 <div class='column'>
                     <article class='panel'>
 
                         <p class="panel-heading">Közelgő mosásaim</p>
                         <div class='palel-block'>
                             
-                                <table id="upcoming" class="table is-striped is-hoverable">
-                                    <thead>
-                                        <tr>
-                                            <th>Nap</th>
-                                            <th>Eleje</th>
-                                            <th>Vége</th>
-                                            <th>Szerkesztés</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                            <table id="upcoming" class="table is-striped is-hoverable">
+                                <thead>
+                                    <tr>
+                                        <th>Nap</th>
+                                        <th>Eleje</th>
+                                        <th>Vége</th>
+                                        <th>Szerkesztés</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @if(count($user_laundries))
-                                    
+                                        
                                         @foreach($user_laundries as $laundry)
                                             <tr>
                                                 <td>{{ $laundry->date }} {{ $laundry->day }}</td>
@@ -154,16 +159,15 @@
                                         @endforeach
                                     @else
                                         <tr>
-                                           <td colspan="4">Nincs egyetlen közelgő mosásod sem.</td> 
+                                            <td colspan="4">Nincs egyetlen közelgő mosásod sem.</td> 
                                         </tr>
                                     @endif
-                                    </tbody>
-                                </table>    
-                            
-                                
-                            
+                                </tbody>
+                            </table>    
+      
                         </div>
-                </article>
+                    </article>
+
                     <script>
                         function deleteLaundry(id) {
                             if(!confirm("Biztos, hogy törlöd ezt a mosást? Ezt nem tudod később visszavonni.")) {
@@ -185,12 +189,14 @@
                 </div>
             </div>
 
-        <article class='panel'>
+<!-- ------ NAPTÁR --------------------------------------------------------------------------------------------->
+
+            <article class='panel'>
                 <p id="calendarPanelHeading" class='panel-heading'></p>
                 <div class='panel-block'>
                     <div id='calendar'></div>
                 </div>
-        </article>
+            </article>
             <script>
                 $(function() {
                     $('#calendar').fullCalendar({
@@ -200,7 +206,7 @@
                             center: 'title',
                             right:  'prev,next'
                         },
-                        titleFormat: 'MMMM D YYYY',
+                        titleFormat: 'MMMM D',
                         columnFormat: 'ddd M/D',
                         defaultView: 'agendaWeek',
                         height: 'auto',
@@ -213,7 +219,7 @@
                         eventColor: 'hsl(204, 86%, 53%)',
                         viewRender: function(view) {
                             var title = view.title;
-                            $("#calendarPanelHeading").html('Hét: ' + title);
+                            $("#calendarPanelHeading").html(title);
                         }
 
                     })
@@ -223,6 +229,8 @@
         </div>
     </div>
 
+    <!-- FOOTER ------------->
     @include('layouts.footer')
+    
 </body>
 </html>

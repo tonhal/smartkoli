@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" class="has-navbar-fixed-top">
 <head>
-    <title>SmartKoli - Mosások</title>  
+    <title>SmartKoli - Vendégek</title>  
     @include('layouts.headers')
 </head>
 <body>
     @include('layouts.navbar')
 
     <div id='main' class='container'>        
-        <div class="section">
-            <h3 class='title is-3'>Naptár</h3>
-            <div id='calendar'></div>
+        <div class='section'>
+            <article class='panel'>            
+                <p class='panel-heading'>Naptár</p>
+                <div class='panel-block'>
+                    <div id='calendar'></div>
+                </div>
+            </article>
             <script>
                 $(function() {
                     $('#calendar').fullCalendar({
