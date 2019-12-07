@@ -18,6 +18,7 @@
             <script>
                 $(function() {
                     $('#calendar').fullCalendar({
+                        fixedWeekCount: false,
                         events: @json($guests)
                     })
                 });
