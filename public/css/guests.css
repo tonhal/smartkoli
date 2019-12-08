@@ -1,0 +1,32 @@
+/*SHOULD BE APPLIED TO EVERY PAGE*/
+
+.container {
+    max-width: 1024px;
+}
+
+.section {
+    padding: 2rem 1.5rem;
+}
+
+hr {
+    width: 90%;
+    margin: 0px auto 0px auto;
+}
+
+.vline {
+    border-left: 2px solid whitesmoke;
+}
+
+#github-icon {
+   height: 34px;
+   width: 34px;
+}
+
+.social-icon {
+   height: 32px;
+   width: 32px;
+}
+
+.panel {
+    height: 100%;
+}
