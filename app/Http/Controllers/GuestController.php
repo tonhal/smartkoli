@@ -30,7 +30,10 @@ class GuestController extends Controller
     {
         $overlap = DB::table('guests')
             ->select('id')
-            ->whereBetween('arrival', [$request->arrival, DB::raw("DATE_ADD('$request->arrival', INTERVAL '$request->nights-1' DAY)")])
+            ->whereBetween('arrival', [
+                $request->arrival, 
+                DB::raw("DATE_ADD('$request->arrival', INTERVAL '$request->nights-1' DAY)")
+            ])
             ->where('guestroom', '=', 1)
             ->exists();
 
@@ -40,7 +43,13 @@ class GuestController extends Controller
 
             for($day = 0; $day < $request->nights; $day++) {
                 DB::table('guests')
-                    ->insert(['user_id' => auth()->id(), 'arrival' => DB::raw("DATE_ADD('$request->arrival', INTERVAL '$day' DAY)"), 'capita' => $request->capita, 'guestroom' => $request->guestroom, 'comment' => $request->comment]);
+                    ->insert([
+                        'user_id' => auth()->id(), 
+                        'arrival' => DB::raw("DATE_ADD('$request->arrival', INTERVAL '$day' DAY)"), 
+                        'capita' => $request->capita, 
+                        'guestroom' => $request->guestroom, 
+                        'comment' => $request->comment
+                    ]);
             }
 
             return response()->json(['success' => 'true']);
