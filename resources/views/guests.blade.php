@@ -87,7 +87,7 @@
                 </div>
                 <div class='column'>
                     <article class='panel'>
-                        <p class='panel-heading'>Vendégeim</p>
+                        <p class='panel-heading'>Az én vendégeim</p>
                         <div class='panel-block'>
                             asd
                         </div>
