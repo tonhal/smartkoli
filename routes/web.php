@@ -20,7 +20,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/newguest', 'GuestController@insert')->name('newGuest');
     Route::post('/deleteguest', 'GuestController@delete')->name('deleteGuest');
     Route::get('/guests', 'GuestController@index');
-    Route::get('/home', 'HomeController@index')->name('home');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });
 

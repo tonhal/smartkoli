@@ -30,3 +30,14 @@ hr {
 .panel {
     height: 100%;
 }
+
+/*CUSTOM*/
+
+#newGuestForm {
+    height: 100%;
+    width: 100%;
+}
+
+input, .select, .control {
+    margin-bottom: 0.8em;
+}

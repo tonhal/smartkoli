@@ -16,10 +16,12 @@
                         <p class='panel-heading'>Új vendégek</p>
                         <div class='panel-block'>
                             <form id='newGuestForm' action='javascript:newGuest()'>
-                                <input class='input' type='date' id='arrival' name='arrival' required>
-                                <div class="select">
+                                <label class='label' for='arrival'>Érkezés napja és az éjszakák száma:<!-- <span style='color: red'>*</span>--></label>
+                                <input class='input is-fullwidth' stlye='width:80%' type='date' id='arrival' name='arrival' required>
+                                <div class="select is-fullwidth" >
                                     <select name='nights' id='nights'>
                                         <option>1</option>
+                                        <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
@@ -30,7 +32,7 @@
                                         <option>10</option>
                                     </select>
                                 </div>
-                                <div class="control">
+                                <div class="control is-fullwidth">
                                     <label class="radio">
                                         <input type="radio" name="room" id='ownroom' checked>
                                         Saját szoba
@@ -39,9 +41,12 @@
                                         <input type="radio" name="room" id='guestroom'>
                                         Vendégszoba
                                     </label>
-                                    <div class="select">
-                                        <select name='capita' id='capita'>
+                                </div>
+                                <label class='label' for='capita'>Vendégek száma:</label>
+                                <div class="select is-fullwidth">
+                                    <select name='capita' id='capita'>
                                             <option>1</option>
+                                            <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                             <option>5</option>
@@ -50,11 +55,11 @@
                                             <option>8</option>
                                             <option>9</option>
                                             <option>10</option>
-                                        </select>
-                                    </div>
-                                </div> 
+                                    </select>
+                                </div>
+                                <label class='label' for='comment'>Vendégek neve és komment:</label>
                                 <input class='input' type='text' id='comment' name='comment' placeholder='Vendégek neve, egyéb megjegyzések'>
-                                <input type='submit' class='button' id='submit' value='Hozzáadás'>
+                                <input type='submit' class='button is-fullwidth is-primary is-light' id='submit' value='Hozzáadás'>
                                 <div id='errorMsgDiv'><p id='errorMsg'></p></div>
                             </form>
                         </div>
