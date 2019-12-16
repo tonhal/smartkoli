@@ -41,3 +41,12 @@ hr {
 input, .select, .control {
     margin-bottom: 0.8em;
 }
+
+#yourGuests {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-column {
+    text-align: center !important;
+}

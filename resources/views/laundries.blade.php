@@ -153,7 +153,7 @@
                                         @foreach($user_laundries as $laundry)
                                             <tr>
                                                 <td>{{ $laundry->date }} {{ $laundry->day }}</td>
-                                                <td>{{ $laundry->start }}
+                                                <td>{{ $laundry->start }}</td>
                                                 <td>{{ $laundry->end }}</td>
                                                 <td class='button-column'><button id='{{ $laundry->id }}' class='button is-danger is-light is-small' onclick='deleteLaundry(this.id)'>Törlés</button></td>
                                             </tr>

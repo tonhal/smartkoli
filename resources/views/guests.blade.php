@@ -94,9 +94,51 @@
                     <article class='panel'>
                         <p class='panel-heading'>Az én vendégeim</p>
                         <div class='panel-block'>
-                            asd
+                            <table id="yourGuests" class="table is-striped is-hoverable">
+                                <thead>
+                                    <th>Nap</th>
+                                    <th>Fő</th>
+                                    <th>Vendégszoba</th>
+                                    <th>Szerkesztés</th>
+                                </thead>
+                                <tbody>
+                                    @if(count($user_guests))
+                                        @foreach ($user_guests as $guest)
+                                            <tr>
+                                                <td>{{ $guest->date}} {{ $guest->day }}</td>
+                                                <td>{{ $guest->capita }}</td>
+                                                <td>{{ $guest->guestroom }}</td>
+                                                <td class='button-column'><button id='{{ $guest->id }}' class='button is-danger is-light is-small' onclick='deleteGuest(this.id)'>Törlés</button></td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="4">Nincs egyetlen közelgő vendégéjszakád sem.</td>
+                                        </tr>
+                                    @endif
+                                </tbody>
+                            </table>
                         </div>
                     </article>
+
+                    <script>
+                        function deleteGuest(id) {
+                            if(!confirm("Biztos, hogy törlöd ezt a vendégéjszakát? Ezt nem tudod később visszavonni.")) {
+                            } else {
+                                $.ajax({
+                                    type: 'post',
+                                    data: { _token: '{{ csrf_token() }}', guestID: id},
+                                    url: '{{ route("deleteGuest") }}',
+                                    success: function(result) {
+                                        window.location.reload();
+                                    },
+                                    error: function(result) {
+                                        alert('Something went wrong.');
+                                    }
+                                })                                    
+                            }
+                        }
+                    </script>
                 </div>
             </div>
 
