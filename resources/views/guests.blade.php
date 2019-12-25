@@ -169,15 +169,35 @@
 
     <div class="modal" id="deleteModal">
         <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Vendégéjszaka törlése</p>
+                <button id="modalXButton" class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
                 <p class="content">Biztos, hogy törlöd a vendégéjszakát? Ezt később nem tudod visszavonni.</p>
                 <button id="modalDeleteButton" class="button is-danger">Törlés</button>
                 <button id="modalCancelButton" class="button">Mégse</button>
-            </div>
+            </section>
         </div>
-        <button id="modalXButton" class="modal-close is-large" aria-label="close"></button>
     </div>
+
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Modal title</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button">Cancel</button>
+          </footer>
+        </div>
+      </div>
 
     @include('layouts.footer')
 </body>

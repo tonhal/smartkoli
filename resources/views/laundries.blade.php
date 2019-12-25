@@ -238,14 +238,17 @@
 
     <div class="modal" id="deleteModal">
         <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <p class="content">Biztos, hogy törlöd ezt a mosást? Ezt később nem tudod visszavonni.</p>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Mosás törlése</p>
+                <button id="modalXButton" class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="content">Biztos, hogy törlöd a mosást? Ezt később nem tudod visszavonni.</p>
                 <button id="modalDeleteButton" class="button is-danger">Törlés</button>
                 <button id="modalCancelButton" class="button">Mégse</button>
-            </div>
+            </section>
         </div>
-        <button id="modalXButton" class="modal-close is-large" aria-label="close"></button>
     </div>
 
     <!-- FOOTER ------------->
