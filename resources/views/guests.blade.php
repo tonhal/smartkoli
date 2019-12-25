@@ -123,9 +123,8 @@
 
                     <script>
                         function deleteGuest(id) {
-                            /*$('#deleteModal').addClass('is-active');*/
-                            if(!confirm("Biztos, hogy törlöd ezt a vendégéjszakát? Ezt nem tudod később visszavonni.")) {
-                            } else {
+                            $('#deleteModal').addClass('is-active');
+                            $('#modalDeleteButton').on('click', function() { 
                                 $.ajax({
                                     type: 'post',
                                     data: { _token: '{{ csrf_token() }}', guestID: id},
@@ -136,8 +135,12 @@
                                     error: function(result) {
                                         alert('Something went wrong.');
                                     }
-                                })                                    
-                            }
+                                }) 
+                            });
+
+                            $('#modalXButton, #modalCancelButton').on('click', function() {
+                                $('#deleteModal').removeClass('is-active');
+                            });
                         }
                     </script>
                 </div>
@@ -166,11 +169,11 @@
         <div class="modal-content">
             <div class="box">
                 <p class="content">Biztos, hogy törlöd a vendégéjszakát? Ezt később nem tudod visszavonni.</p>
-                <button class="button is-danger">Törlés</button>
-                <button class="button">Mégse</button>
+                <button id="modalDeleteButton" class="button is-danger">Törlés</button>
+                <button id="modalCancelButton" class="button">Mégse</button>
             </div>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+        <button id="modalXButton" class="modal-close is-large" aria-label="close"></button>
     </div>
 
     @include('layouts.footer')

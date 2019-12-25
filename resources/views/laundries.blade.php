@@ -171,8 +171,8 @@
 
                     <script>
                         function deleteLaundry(id) {
-                            if(!confirm("Biztos, hogy törlöd ezt a mosást? Ezt nem tudod később visszavonni.")) {
-                            } else {
+                            $('#deleteModal').addClass('is-active');
+                            $('#modalDeleteButton').on('click', function() {
                                 $.ajax({
                                     type: 'post',
                                     data: { _token: '{{ csrf_token() }}', laundryID: id},
@@ -183,8 +183,12 @@
                                     error: function(result) {
                                         alert('Something went wrong.');
                                     }
-                                })                                    
-                            }
+                                });
+                            });
+
+                            $('#modalXButton, #modalCancelButton').on('click', function() {
+                                $('#deleteModal').removeClass('is-active');
+                            });
                         }
                     </script>
                 </div>
@@ -228,6 +232,20 @@
                 });
             </script>
         </div>
+    </div>
+
+    <!-- MODALS --------------------------------------------------------------------------------------------------->
+
+    <div class="modal" id="deleteModal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <p class="content">Biztos, hogy törlöd ezt a mosást? Ezt később nem tudod visszavonni.</p>
+                <button id="modalDeleteButton" class="button is-danger">Törlés</button>
+                <button id="modalCancelButton" class="button">Mégse</button>
+            </div>
+        </div>
+        <button id="modalXButton" class="modal-close is-large" aria-label="close"></button>
     </div>
 
     <!-- FOOTER ------------->
