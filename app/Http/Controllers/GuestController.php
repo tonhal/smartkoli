@@ -50,16 +50,20 @@ class GuestController extends Controller
     
     public function insert(Request $request)
     {
+        $request->nights = intval($request->nights);
+        $request->capita = intval($request->capita);
+        $request->guestroom = intval($request->guestroom);
+        $departure = $request->nights - 1;
+
         $overlap = DB::table('guests')
             ->select('id')
-            ->whereBetween('arrival', [
-                $request->arrival, 
-                DB::raw("DATE_ADD('$request->arrival', INTERVAL '$request->nights-1' DAY)")
-            ])
+            ->whereRaw("arrival between ? and DATE_ADD(?, INTERVAL ? DAY)", [$request->arrival, $request->arrival, $departure])
             ->where('guestroom', '=', 1)
             ->exists();
 
-        if($overlap) {
+        /*dd([$overlap, $request->guestroom === 1]);*/
+
+        if($overlap && $request->guestroom === 1) {
             return response()->json(['error' => 'Valamelyik kijelölt napra már foglal a vendégszoba'], 404);
         } else {
 

@@ -123,6 +123,7 @@
 
                     <script>
                         function deleteGuest(id) {
+                            /*$('#deleteModal').addClass('is-active');*/
                             if(!confirm("Biztos, hogy törlöd ezt a vendégéjszakát? Ezt nem tudod később visszavonni.")) {
                             } else {
                                 $.ajax({
@@ -158,6 +159,18 @@
                 });
             </script>
         </div>
+    </div>
+
+    <div class="modal" id="deleteModal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <p class="content">Biztos, hogy törlöd a vendégéjszakát? Ezt később nem tudod visszavonni.</p>
+                <button class="button is-danger">Törlés</button>
+                <button class="button">Mégse</button>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
     @include('layouts.footer')

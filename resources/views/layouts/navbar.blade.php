@@ -23,11 +23,7 @@
                 </a>
 
                 <a class="navbar-item" href="https://trello.com/b/iRXaTCho/koli" target="_blank">
-                    Fáj a pöcsöm!
-                </a>
-
-                <a class="navbar-item" href="https://trello.com/b/iRXaTCho/koli" target="_blank">
-                    Dokumentumok
+                    Hibabejelentés
                 </a>
             </div>
         
