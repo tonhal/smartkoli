@@ -157,7 +157,10 @@
                 $(function() {
                     $('#calendar').fullCalendar({
                         fixedWeekCount: false,
-                        events: @json($guests)
+                        events: @json($guests),
+                        eventRender: function(event, element) {
+                            element.html(event.title + '<br><strong>' + event.description + '</strong>')
+                        },
                     })
                 });
             </script>
