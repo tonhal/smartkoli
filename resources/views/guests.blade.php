@@ -59,7 +59,9 @@
                                 </div>
                                 <label class='label' for='comment'>Vendégek neve és komment:</label>
                                 <input class='input' type='text' id='comment' name='comment' placeholder='Vendégek neve, egyéb megjegyzések'>
-                                <input type='submit' class='button is-fullwidth is-primary is-light' id='submit' value='Hozzáadás'>
+                                <button type='submit' class='button is-fullwidth is-primary is-light' id='submit'>
+                                    <span class='icon'><i class="fas fa-check"></i></span><span>Hozzáadás</span>
+                                </button>
                                 <div id='errorMsgDiv'><p id='errorMsg'></p></div>
                             </form>
                         </div>
@@ -108,7 +110,11 @@
                                                 <td>{{ $guest->date}} {{ $guest->day }}</td>
                                                 <td>{{ $guest->capita }}</td>
                                                 <td>{{ $guest->guestroom }}</td>
-                                                <td class='button-column'><button id='{{ $guest->id }}' class='button is-danger is-light is-small' onclick='deleteGuest(this.id)'>Törlés</button></td>
+                                                <td class='button-column'>
+                                                    <button id='{{ $guest->id }}' class='button is-danger is-light is-small' onclick='deleteGuest(this.id)'>
+                                                        <span class='icon'><i class="fas fa-times"></i></span><span>Törlés</span>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @else
@@ -148,7 +154,7 @@
 
 
             <article class='panel'>            
-                <p class='panel-heading'>Naptár</p>
+                <p id='calendarPanelHeading' class='panel-heading'></p>
                 <div class='panel-block'>
                     <div id='calendar'></div>
                 </div>
@@ -158,6 +164,10 @@
                     $('#calendar').fullCalendar({
                         fixedWeekCount: false,
                         events: @json($guests),
+                        viewRender: function(view) {
+                            var title = view.title;
+                            $("#calendarPanelHeading").html(title);
+                        },
                         eventRender: function(event, element) {
                             element.html(event.title + '<br><strong>' + event.description + '</strong>')
                         },

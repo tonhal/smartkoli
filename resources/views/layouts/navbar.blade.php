@@ -15,22 +15,22 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="/">
-                    Mosások
+                    <span class='icon'><i class="fas fa-tshirt"></i></span><span>Mosások</span>
                 </a>
         
                 <a class="navbar-item" href="/guests">
-                    Vendégtáblázat
+                    <span class='icon'><i class="fas fa-bed"></i></span><span>Vendégtáblázat</span>
                 </a>
 
                 <a class="navbar-item" href="https://trello.com/b/iRXaTCho/koli" target="_blank">
-                    Hibabejelentés
+                    <span class='icon'><i class="fab fa-trello"></i></span><span>Hibabejelentés</span>
                 </a>
             </div>
         
             <div class="navbar-end">
                 <div class="navbar-item has-dropdown is-hoverable">
                      <a class="navbar-link">
-                        {{ auth()->user()->name }}
+                        <span class='icon'><i class="fas fa-user"></i></span><span>{{ auth()->user()->name }}</span>                        
                      </a>
                      <div class="navbar-dropdown">
                         <a class="navbar-item" href='/logout'>

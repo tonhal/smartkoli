@@ -6,6 +6,10 @@
 
 /*SHOULD BE APPLIED TO EVERY PAGE*/
 
+.icon {
+    margin-right: 0.25em;
+}
+
 .container {
     max-width: 1024px;
 }

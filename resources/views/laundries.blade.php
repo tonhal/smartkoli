@@ -97,7 +97,9 @@
                                 <br>
                                 <!--<label class='label' for='comment'>Írj egy kommentet:</label>
                                 <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>-->
-                                <input class='button is-link is-light is-fullwidth' type='submit' id='submit' value='Hozzáadás'>
+                                <button type='submit' class='button is-fullwidth is-primary is-light' id='submit'>
+                                    <span class='icon'><i class="fas fa-check"></i></span><span>Hozzáadás</span>
+                                </button>
                                 <!--<p><strong><span style='color: red'>*</span></strong> kötelező adatok</p>-->
                                 <div id='errorMsgDiv'><p id='errorMsg'></p></div>
                             </form>
@@ -155,7 +157,11 @@
                                                 <td>{{ $laundry->date }} {{ $laundry->day }}</td>
                                                 <td>{{ $laundry->start }}</td>
                                                 <td>{{ $laundry->end }}</td>
-                                                <td class='button-column'><button id='{{ $laundry->id }}' class='button is-danger is-light is-small' onclick='deleteLaundry(this.id)'>Törlés</button></td>
+                                                <td>
+                                                    <button id='{{ $laundry->id }}' class='button is-danger is-light is-small' onclick='deleteLaundry(this.id)'>
+                                                        <span class='icon'><i class="fas fa-times"></i></span><span>Törlés</span>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @else
