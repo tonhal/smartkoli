@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use DateTime;
+use Validator;
 
 class LaundryController extends Controller
 {
@@ -36,34 +37,47 @@ class LaundryController extends Controller
         return view('laundries', compact('laundries','user_laundries'));
     }
 
-    public function insert()
+    public function insert(Request $request)
     {
-        $user_id = auth()->id();
-        $start_time = new DateTime(request('start_time'));
-        $end_time = new DateTime(request('end_time'));
-        $comment = request('comment');
+        $validator = Validator::make($request->all(), [
+            'start_time' => 'required|date_format:Y-m-d H:i:s',
+            'end_time' => 'required|date_format:Y-m-d H:i:s'
+        ]);
+
+        if($validator->passes()) {
+            
+            $user_id = auth()->id();
+            $start_time = new DateTime($request->start_time);
+            $end_time = new DateTime($request->end_time);
         
-        $overlap = DB::table('laundries')
-            ->select('id')
-            ->where('start', '<', $end_time)
-            ->where('end', '>', $start_time)
-            ->exists();
+            $overlap = DB::table('laundries')
+                ->select('id')
+                ->where('start', '<', $end_time)
+                ->where('end', '>', $start_time)
+                ->exists();
 
-        if($overlap) {
-            return response()->json(['error' => 'Ennek az idősávnak bizonyos részére már foglalt a mosógép.'], 404);
-        } else if(!($start_time < $end_time)) { 
-            return response()->json(['error' => 'Valami nem stimmel az időpontokkal!'], 404);
+            if($overlap) {
+
+                return response()->json(['error' => 'Ennek az idősávnak bizonyos részére már foglalt a mosógép.'], 422);
+
+            } else if(!($start_time < $end_time)) { 
+
+                return response()->json(['error' => 'Valami nem stimmel az időpontokkal!'], 422);
+
+            } else {
+
+                DB::table('laundries')->insert([
+                    'user_id' => $user_id, 'start' => $start_time, 'end' => $end_time
+                ]);
+
+                return response()->json(['success' => 'true']);
+            }
         } else {
-            DB::table('laundries')->insert([
-            'user_id' => $user_id, 'start' => $start_time, 'end' => $end_time, 'comment' => $comment
-            ]);
-
-            return response()->json(['success' => 'true']);
-        }
+            return response()->json(['error' => $validator->errors()->all()], 400);
+        }       
     }
 
     public function delete(Request $request) {
-        //$id = request('laundryID');
 
         DB::table('laundries')
             ->where('id', '=', $request->laundryID)

@@ -109,14 +109,12 @@
                     <script>
                         function newLaundry() {
                             $('#date, #start_time, #end_time, #comment, #submit').prop('disabled', true);
-                            var username = $('#user').val()
                             var start_time = $('#date').val() + ' ' + $('#start_time').val();
                             var end_time = $('#date').val() + ' ' + $('#end_time').val();
-                            var comment = $('#comment').val();
                             
                             $.ajax({
                                 type: 'post',
-                                data: {_token: '{{ csrf_token() }}', username, start_time, end_time, comment},
+                                data: {_token: '{{ csrf_token() }}', start_time, end_time},
                                 url: '{{ route("newLaundry") }}',
                                 dataType: 'JSON',
                                 success: function(result) {

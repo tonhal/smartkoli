@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use DateTime;
+use Validator;
 
 class GuestController extends Controller
 {
@@ -56,31 +57,43 @@ class GuestController extends Controller
     {
         $request->nights = intval($request->nights);
         $request->capita = intval($request->capita);
-        $request->guestroom = intval($request->guestroom);
-        $departure = $request->nights - 1;
 
-        $overlap = DB::table('guests')
-            ->select('id')
-            ->whereRaw("arrival between ? and DATE_ADD(?, INTERVAL ? DAY)", [$request->arrival, $request->arrival, $departure])
-            ->where('guestroom', '=', 1)
-            ->exists();
+        $validator = Validator::make($request->all(), [
+            'arrival' => 'required|date_format:Y-m-d',
+            'nights' => 'required|numeric',
+            'capita' => 'required|numeric',
+            'guestroom' => 'required|numeric'
+        ]);
 
-        if($overlap && $request->guestroom === 1) {
-            return response()->json(['error' => 'Valamelyik kijelölt napra már foglal a vendégszoba'], 404);
-        } else {
+        if($validator->passes()) {
 
-            for($day = 0; $day < $request->nights; $day++) {
-                DB::table('guests')
-                    ->insert([
-                        'user_id' => auth()->id(), 
-                        'arrival' => DB::raw("DATE_ADD('$request->arrival', INTERVAL '$day' DAY)"), 
-                        'capita' => $request->capita, 
-                        'guestroom' => $request->guestroom, 
-                        'comment' => $request->comment
-                    ]);
+            $departure = $request->nights - 1;
+
+            $overlap = DB::table('guests')
+                ->select('id')
+                ->whereRaw("arrival between ? and DATE_ADD(?, INTERVAL ? DAY)", [$request->arrival, $request->arrival, $departure])
+                ->where('guestroom', '=', 1)
+                ->exists();
+
+            if($overlap && $request->guestroom === 1) {
+                return response()->json(['error' => 'Valamelyik kijelölt napra már foglal a vendégszoba'], 422);
+            } else {
+
+                for($day = 0; $day < $request->nights; $day++) {
+                    DB::table('guests')
+                        ->insert([
+                            'user_id' => auth()->id(), 
+                            'arrival' => DB::raw("DATE_ADD('$request->arrival', INTERVAL '$day' DAY)"), 
+                            'capita' => $request->capita, 
+                            'guestroom' => $request->guestroom, 
+                            'comment' => $request->comment
+                        ]);
+                }
+
+                return response()->json(['success' => 'true']);
             }
-
-            return response()->json(['success' => 'true']);
+        } else {
+            return response()->json(['error' => $validator->errors()->all()], 400);
         }
     }
 
