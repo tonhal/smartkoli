@@ -144,7 +144,7 @@
                                 }) 
                             });
 
-                            $('#modalXButton, #modalCancelButton').on('click', function() {
+                            $('#modalXButton, #modalCancelButton, .modal-background').on('click', function() {
                                 $('#deleteModal').removeClass('is-active');
                             });
                         }

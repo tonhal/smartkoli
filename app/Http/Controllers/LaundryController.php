@@ -46,7 +46,6 @@ class LaundryController extends Controller
 
         if($validator->passes()) {
             
-            $user_id = auth()->id();
             $start_time = new DateTime($request->start_time);
             $end_time = new DateTime($request->end_time);
         
@@ -67,7 +66,7 @@ class LaundryController extends Controller
             } else {
 
                 DB::table('laundries')->insert([
-                    'user_id' => $user_id, 'start' => $start_time, 'end' => $end_time
+                    'user_id' => auth()->id(), 'start' => $start_time, 'end' => $end_time
                 ]);
 
                 return response()->json(['success' => 'true']);
