@@ -1,4 +1,4 @@
-<nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation" style="background-color: #ededed">
     <div class="container">
         <div class="navbar-brand">
             <p class="navbar-item">
@@ -15,19 +15,19 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="/">
-                    <span class='icon'><i class="fas fa-tshirt"></i></span><span>Mosások</span>
+                    <span class='icon' style="color: #e3c900"><i class="fas fa-tshirt"></i></span><span>Mosások</span>
                 </a>
         
                 <a class="navbar-item" href="/guests">
-                    <span class='icon'><i class="fas fa-bed"></i></span><span>Vendégtáblázat</span>
+                    <span class='icon' style="color:crimson"><i class="fas fa-bed"></i></span><span>Vendégtáblázat</span>
                 </a>
 
                 <a class="navbar-item" href="/files">
-                    <span class='icon'><i class="fas fa-file-alt"></i></span><span>Feltöltések</span>
+                    <span class='icon' style="color: #217537"><i class="fas fa-file-alt"></i></span><span>Feltöltések</span>
                 </a>
 
                 <a class="navbar-item" href="https://trello.com/b/iRXaTCho/koli" target="_blank">
-                    <span class='icon'><i class="fab fa-trello"></i></span><span>Hibabejelentés</span>
+                    <span class='icon' style="color: #017ac2"><i class="fab fa-trello"></i></span><span>Hibabejelentés</span>
                 </a>
             </div>
         

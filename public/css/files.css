@@ -43,3 +43,7 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+#fileTable {
+    overflow: auto;
+}

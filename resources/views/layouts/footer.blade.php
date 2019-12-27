@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" style="background-color: #ededed">
     <div class="content has-text-centered">
         <p><img src='{{ asset("images/kolilogok/teljes_nagy.png") }}' height='150px' width='150px'>
         <p>

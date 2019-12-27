@@ -27,13 +27,13 @@
                 
                 <p class="panel-heading level">Feltöltött fájlok<span class="level-right"><button class="button is-link" onclick="showFormModal()"><span class='icon'><i class="fas fa-upload"></i></span><span>Új fájl feltöltése</span></button></span></p>
                 <div class="panel-block">
-                    <table class="table is-striped is-hoverable is-fullwidth">
+                    <table id="fileTable" class="table is-striped is-hoverable is-fullwidth">
                         <thead>
                             <tr>
-                                <th width="45%">Név</th>
-                                <th width="10%">Kiterjesztés</th>
+                                <th width="40%">Név</th>
+                                <th width="20%">Kiterjesztés</th>
                                 <th width="20%">Feltöltő</th>
-                                <th width="30%">Szerkesztés</th>
+                                <th width="20%">Szerkesztés</th>
                             </tr>
                         </thead>
                         @forelse ($files as $file)
