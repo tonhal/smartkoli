@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/files', 'FileController@index');
     Route::post('/newfile', 'FileController@store')->name('newFile');
-    //Route::post('/deletelaundry', 'LaundryController@delete')->name('downloadFile');
+    Route::get('files/{uuid}/download', 'FileController@download')->name('downloadFile');
     //Route::post('/deletelaundry', 'LaundryController@delete')->name('deleteFile');
 
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

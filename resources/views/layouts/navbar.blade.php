@@ -22,6 +22,10 @@
                     <span class='icon'><i class="fas fa-bed"></i></span><span>Vendégtáblázat</span>
                 </a>
 
+                <a class="navbar-item" href="/files">
+                    <span class='icon'><i class="fas fa-file-alt"></i></span><span>Feltöltések</span>
+                </a>
+
                 <a class="navbar-item" href="https://trello.com/b/iRXaTCho/koli" target="_blank">
                     <span class='icon'><i class="fab fa-trello"></i></span><span>Hibabejelentés</span>
                 </a>

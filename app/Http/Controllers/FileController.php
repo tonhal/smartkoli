@@ -21,12 +21,19 @@ class FileController extends Controller
         $file['uuid'] = (string)Uuid::generate();
         $file['user_id'] = auth()->id();
 
-        if ($request->hasFile('filename')) {
-            $file['filename'] = $request->filename->getClientOriginalName();
-            $request->filename->storeAs('files', $file['filename']);
+        if ($request->hasFile('filedata')) {
+            $file['filename'] = $request->filedata->getClientOriginalName();
+            $request->filedata->storeAs('files', $file['filename']);
         }
 
         File::create($file);
         return redirect('/files');
+    }
+
+    public function download($uuid)
+    {
+        $file = File::where('uuid', $uuid)->firstOrFail();
+        $pathToFile = storage_path('app/files/' . $file->filename);
+        return response()->download($pathToFile);
     }
 }
