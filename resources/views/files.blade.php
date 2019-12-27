@@ -11,7 +11,7 @@
     <div id='main' class='container'>        
         <div class='section'>
 
-            <button class="button is-link" onclick="showFormModal()">Új file feltöltése</button>
+            
 
             <script>
                 function showFormModal() {
@@ -25,7 +25,7 @@
 
             <section class="panel">
                 
-                <p class="panel-heading">Feltöltött dokumentumok</p>
+                <p class="panel-heading level">Feltöltött fájlok<span class="level-right"><button class="button is-link" onclick="showFormModal()"><span class='icon'><i class="fas fa-upload"></i></span><span>Új fájl feltöltése</span></button></span></p>
                 <div class="panel-block">
                     <table class="table is-striped is-hoverable is-fullwidth">
                         <thead>
@@ -54,7 +54,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan=4>Egyetlen file sincs feltöltve.</td>
+                                <td colspan=4>Egyetlen fájl sincs feltöltve.</td>
                             </tr>
                         @endforelse
                     </table>
@@ -94,7 +94,7 @@
                 <button id="modalXButton" class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                <p class="content">Biztos, hogy törlöd ezt file-t? Ezt később nem tudod visszavonni.</p>
+                <p class="content">Biztos, hogy törlöd ezt a fájlt? Ezt később nem tudod visszavonni.</p>
                 <button id="modalDeleteButton" class="button is-danger">Törlés</button>
                 <button id="modalCancelButton" class="button">Mégse</button>
             </section>
@@ -105,7 +105,7 @@
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">File feltöltése</p>
+                <p class="modal-card-title">Fájl feltöltése</p>
                 <button id="fileModalXButton" class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
@@ -115,7 +115,7 @@
                     <label for="title">Név:</label>
                     <input class="input is-fullwidth" type="text" name="title" class="form-control" required>
                     <br>
-                    <label for="filedata">File kiválasztása:</label>
+                    <label for="filedata">Fájl kiválasztása:</label>
                     <div id="fileInput" class="file is-fullwidth">
                         <label class="file-label">
                             <input class="file-input" type="file" name="filedata">
@@ -128,7 +128,7 @@
                                 </span>
                             </span>
                             <span class="file-name">
-                                Nincs file kiválasztva
+                                Nincs fájl kiválasztva
                             </span>
                         </label>
                     </div>
@@ -144,7 +144,7 @@
                     </script>
     
                     <br>
-                    <button id="fileModalDeleteButton" class="button is-link">Feltöltés</button>
+                    <button id="fileModalDeleteButton" class="button is-link"><span class='icon'><i class="fas fa-upload"></i></span><span>Feltöltés</span></button>
                     <button id="fileModalCancelButton" class="button">Mégse</button>
 
                 </form>
