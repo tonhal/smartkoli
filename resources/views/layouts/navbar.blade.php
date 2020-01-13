@@ -1,9 +1,9 @@
 <nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation" style="background-color: #ededed">
     <div class="container">
         <div class="navbar-brand">
-            <p class="navbar-item">
+            <a href="/landing" class="navbar-item">
                 <img src='{{ asset("images/kolilogok/szoveg_nagy.png") }}'>
-            </p>
+            </a>
         
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>

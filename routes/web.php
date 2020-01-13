@@ -15,6 +15,8 @@ use App\Http\Controllers\GuestController;
 
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/landing', function () { return view('landing'); }); 
+
     Route::get('/', 'LaundryController@index');
     Route::post('/newlaundry', 'LaundryController@insert')->name('newLaundry');
     Route::post('/deletelaundry', 'LaundryController@delete')->name('deleteLaundry');
