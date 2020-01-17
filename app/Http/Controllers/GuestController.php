@@ -57,6 +57,7 @@ class GuestController extends Controller
     {
         $request->nights = intval($request->nights);
         $request->capita = intval($request->capita);
+        $request->guestroom = intval($request->guestroom);
 
         $validator = Validator::make($request->all(), [
             'arrival' => 'required|date_format:Y-m-d',
@@ -76,7 +77,7 @@ class GuestController extends Controller
                 ->exists();
 
             if($overlap && $request->guestroom === 1) {
-                return response()->json(['error' => 'Valamelyik kijelölt napra már foglal a vendégszoba'], 422);
+                return response()->json(['error' => 'Valamelyik kijelölt napra már foglalt a vendégszoba.ß'], 422);
             } else {
 
                 for($day = 0; $day < $request->nights; $day++) {
