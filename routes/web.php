@@ -13,7 +13,7 @@
 
 use App\Http\Controllers\GuestController;
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth','verified']], function () {
 
     Route::get('/landing', function () { return view('landing'); }); 
 
@@ -34,9 +34,12 @@ Route::group(['middleware' => 'auth'], function () {
     
 });
 
+Auth::routes();
+
+Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => 'guest'], function () {
-    Auth::routes();
+    
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
 });

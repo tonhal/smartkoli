@@ -11,7 +11,6 @@ class LaundryController extends Controller
 {
     public function index()
     {
-
         $laundries = DB::table('laundries')
             ->join('users', 'laundries.user_id', '=', 'users.id')
             ->select('laundries.id','users.name as title','laundries.start','laundries.end')
