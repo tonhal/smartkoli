@@ -77,7 +77,7 @@ class GuestController extends Controller
                 ->exists();
 
             if($overlap && $request->guestroom === 1) {
-                return response()->json(['error' => 'Valamelyik kijelölt napra már foglalt a vendégszoba.ß'], 422);
+                return response()->json(['error' => 'Valamelyik kijelölt napra már foglalt a vendégszoba.'], 422);
             } else {
 
                 for($day = 0; $day < $request->nights; $day++) {
