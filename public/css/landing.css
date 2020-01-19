@@ -38,3 +38,29 @@ hr {
 #welcomeMessage {
     margin-top: 2em;
 }
+
+.landing-button {
+    color: white;
+    /*height: 6em;*/
+    /*margin-bottom: 3em;*/
+}
+
+#landing-laundries {
+    background-color: #e3c900;
+}
+
+#landing-guests {
+    background-color: crimson;
+}
+
+#landing-files {
+    background-color: #217537;
+}
+
+#landing-trello {
+    background-color: #017ac2;
+}
+
+#building-img {
+    margin-bottom: 1em;
+}

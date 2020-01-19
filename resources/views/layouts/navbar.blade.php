@@ -1,7 +1,7 @@
 <nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation" style="background-color: #ededed">
     <div class="container">
         <div class="navbar-brand">
-            <a href="/landing" class="navbar-item">
+            <a href="/" class="navbar-item">
                 <img src='{{ asset("images/kolilogok/szoveg_nagy.png") }}'>
             </a>
         
@@ -14,7 +14,7 @@
         
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/">
+                <a class="navbar-item" href="/laundries">
                     <span class='icon' style="color: #e3c900"><i class="fas fa-tshirt"></i></span><span>Mosások</span>
                 </a>
         
