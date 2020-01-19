@@ -23,7 +23,7 @@
                 }
             </script>
 
-            <section class="panel">
+            <section class="panel" id="files-panel">
                 
                 <p class="panel-heading level">Feltöltött fájlok<span class="level-right"><button class="button is-link" onclick="showFormModal()"><span class='icon'><i class="fas fa-upload"></i></span><span>Új fájl feltöltése</span></button></span></p>
                 <div class="panel-block">
