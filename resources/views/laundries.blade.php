@@ -136,7 +136,7 @@
                     <article class='panel'>
 
                         <p class="panel-heading">Közelgő mosásaim</p>
-                        <div class='palel-block'>
+                        <div class='panel-block'>
                             
                             <table id="upcoming" class="table is-striped is-hoverable">
                                 <thead>
