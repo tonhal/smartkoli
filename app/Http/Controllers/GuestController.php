@@ -81,14 +81,10 @@ class GuestController extends Controller
             } else {
 
                 for($day = 0; $day < $request->nights; $day++) {
-                    DB::table('guests')
-                        ->insert([
-                            'user_id' => auth()->id(), 
-                            'arrival' => DB::raw("DATE_ADD('$request->arrival', INTERVAL '$day' DAY)"), 
-                            'capita' => $request->capita, 
-                            'guestroom' => $request->guestroom, 
-                            'comment' => $request->comment
-                        ]);
+
+                    DB::insert("INSERT INTO guests (user_id, arrival, capita, guestroom, comment) VALUES (?, DATE_ADD(?, INTERVAL ? DAY), ?, ?, ?)", 
+                    [auth()->id(), $request->arrival, $day, $request->capita, $request->guestroom, $request->comment]);
+
                 }
 
                 return response()->json(['success' => 'true']);

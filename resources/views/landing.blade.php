@@ -16,12 +16,10 @@
             </div>
         </article>
 
-        <div class="notification is-warning">
-            <button class="delete"></button>
-            <strong>Ez egy értesítés!</strong> Primar lorem ipsum dolor sit amet, consectetur
-            adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-            consectetur adipiscing elit
-          </div>
+        <div id="test-notification" class="notification is-warning">
+            <button id="test-notification-x" class="delete"></button>
+            <strong>Figyelem!</strong> Az applikáció jelenleg teszt üzemmódban működik, ezért előfodulhatnak hibák, rosszul működő felületek, vagy akár adatvesztés is. A felhasználói élmény javításához szükségünk van a <u>te segítségedre</u> is! Kérlek, ha bármilyen hibát tapasztalsz, jelezd a GitHub-on (cicás ikon alul) vagy írj Ágostonnak. Köszi!
+        </div>
 
         <section class="columns">
             <div class="column">
@@ -58,6 +56,46 @@
             var cw = $('.landing-button').width();
             $('.landing-button').css({'height':cw+'px'});
         });
+
+        $( '#test-notification-x' ).on('click', function() {
+            $( '#test-notification' ).hide();
+        });
+
+        $( '#landing-laundries' ).hover(
+            function() {
+                $(this).html('Mosások <br>hozzáadása, <br>törlése').css('color','white');
+            },
+            function() {
+                $(this).html('<span class="icon"><i class="fas fa-tshirt"></i></span><span>Mosások</span>');
+            }
+        );
+
+        $( '#landing-guests' ).hover(
+            function() {
+                $(this).html('Vendégek <br>hozzáadása, <br>törlése').css('color','white');
+            },
+            function() {
+                $(this).html('<span class="icon"><i class="fas fa-bed"></i></span><span>Vendégek</span>');
+            }
+        );
+
+        $( '#landing-files' ).hover(
+            function() {
+                $(this).html('Dokumentumok <br>feltöltése, <br>letöltése').css('color','white');
+            },
+            function() {
+                $(this).html('<span class="icon"><i class="fas fa-file-alt"></i></span><span>Feltöltések</span>');
+            }
+        );
+
+        $( '#landing-trello' ).hover(
+            function() {
+                $(this).html('Hibabejelentő <br>applikáció').css('color','white');
+            },
+            function() {
+                $(this).html('<span class="icon"><i class="fab fa-trello"></i></span><span>Trello</span>');
+            }
+        );
     </script>
     @include('layouts.footer')
 </body>

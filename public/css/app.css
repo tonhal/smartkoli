@@ -11100,3 +11100,19 @@ a.text-dark:focus {
   }
 }
 
+#mandak-logo {
+  width: auto;
+  height: auto;
+  max-width: 15%;
+  max-height: 15%;
+}
+
+body { 
+  background-image: linear-gradient(to bottom right, #0d068f, #dd00ff);
+  background-repeat: no-repeat;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
