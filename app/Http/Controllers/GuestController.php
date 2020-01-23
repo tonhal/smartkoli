@@ -63,7 +63,21 @@ class GuestController extends Controller
             'arrival' => 'required|date_format:Y-m-d',
             'nights' => 'required|numeric',
             'capita' => 'required|numeric',
-            'guestroom' => 'required|numeric'
+            'guestroom' => 'required|numeric',
+            'comment' => 'required|min:3|max:300'
+        ], 
+        [
+            'arrival.required' => 'Kérlek add meg az érkezési dátumot!',
+            'arrival.date_format' => 'Nem jó a dátum formátum.',
+            'nights.required' => 'Meg kell adnod az éjszakák számát.',
+            'nights.numberic' => 'Valami nem stimmel az éjszakák száma formátumával.',
+            'capita.required' => 'Meg kell adnod a vendégek számát.',
+            'capita.numberic' => 'Valami nem stimmel a vendégek száma formátumával.',
+            'guestroom.required' => 'Jelöld be, hogy milyen szobában szállásolod el a vendéget.',
+            'guestroom.numberic' => 'Valami nem stimmel a szobatípus választással.',
+            'comment.required' => 'Kérlek add meg kommentben a vendégek nevét!',
+            'comment.min' => 'A komment túl rövid.',
+            'comment.max' => 'A komment túl hosszú, max 300 karakter lehet.'
         ]);
 
         if($validator->passes()) {

@@ -97,7 +97,7 @@
                                 <br>
                                 <!--<label class='label' for='comment'>Írj egy kommentet:</label>
                                 <input class='input' type='text' name='comment' id='comment' placeholder='Komment'>-->
-                                <button type='submit' class='button is-fullwidth is-primary' id='submit'>
+                                <button type='submit' class='button is-fullwidth is-primary is-light' id='submit'>
                                     <span class='icon'><i class="fas fa-check"></i></span><span>Hozzáadás</span>
                                 </button>
                                 <!--<p><strong><span style='color: red'>*</span></strong> kötelező adatok</p>-->

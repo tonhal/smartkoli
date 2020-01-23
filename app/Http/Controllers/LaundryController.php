@@ -41,6 +41,12 @@ class LaundryController extends Controller
         $validator = Validator::make($request->all(), [
             'start_time' => 'required|date_format:Y-m-d H:i:s',
             'end_time' => 'required|date_format:Y-m-d H:i:s'
+        ],
+        [
+            'start_time.required' => 'Meg kell adnod a kezdőidőpontot.',
+            'start_time.date_format' => 'Valami nem stimmel az időpont (kezdés) formátumával.',
+            'end_time.required' => 'Meg kell adnod a mosás végét.',
+            'end_time.date_format' => 'Valami nem stimmel az időpont (vége) formátumával.',
         ]);
 
         if($validator->passes()) {
