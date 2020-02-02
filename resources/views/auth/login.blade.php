@@ -67,7 +67,9 @@
                         <hr>
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary">Facebook Login</a>
+                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary btn-block" style="background-color: #3b5998">
+                                    <span class='icon' style="margin-right: 1em"><i class="fab fa-facebook-f"></i></span><span>Facebook bejelentkezés</span>
+                                </a>
                             </div>
                         </div>
                     </form>
