@@ -12,7 +12,7 @@
         <article class="message" id="welcomeMessage">
             <div class="message-body">
                 <h2 class="title is-3">Üdvözlünk a Mandák SmartKoli Appban!</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc a mauris imperdiet maximus. Curabitur ultrices vehicula mi, et faucibus orci. Donec ultrices at magna vitae luctus. Nullam vulputate nisl lorem, eu imperdiet elit vestibulum vel. Ut blandit auctor velit, sed interdum nisi gravida ac. Quisque eget placerat sem. Proin ornare urna eget ligula placerat tincidunt. Cras ultricies dapibus est. Nulla in turpis ut turpis pellentesque luctus quis nec mi.</p>
+                <p>Ezt az webapplikációt azért hoztuk létre, hogy megkönnyítsük a kollégium ügyes-bajos dolgainak intézését, tehermentesítsük a Facebook-csoportot, és távoli elérést biztosítsunk a legfontosabb dolgokhoz. Jelenleg a mosásaidat és a vendégeid kezelését tudod elintézni ezen a helyen, valamint innen töltheted le a mások által feltöltött kollégiumi ügyintézéshez kapcsolódó fájlokat.</p>
             </div>
         </article>
 
