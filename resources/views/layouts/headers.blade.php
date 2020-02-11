@@ -11,3 +11,13 @@
 <script src='{{url('/add-on/jquery-3.4.1.min.js')}}'></script>
 <script src='{{url('/add-on/moment.js')}}'></script>
 <script src='{{url('/add-on/fullcalendar.js')}}'></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158214839-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158214839-1');
+</script>

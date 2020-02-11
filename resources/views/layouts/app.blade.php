@@ -23,6 +23,15 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/mouse.png') }}"/>    
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158214839-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158214839-1');
+</script>
 </head>
 <body>
     <div id="app">
