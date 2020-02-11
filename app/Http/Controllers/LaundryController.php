@@ -71,7 +71,11 @@ class LaundryController extends Controller
             } else {
 
                 DB::table('laundries')->insert([
-                    'user_id' => auth()->id(), 'start' => $start_time, 'end' => $end_time
+                    'user_id' => auth()->id(), 
+                    'start' => $start_time, 
+                    'end' => $end_time, 
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]);
 
                 return response()->json(['success' => 'true']);
