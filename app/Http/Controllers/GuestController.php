@@ -19,7 +19,7 @@ class GuestController extends Controller
                     WHEN guests.guestroom = 0 THEN 'Saját szoba'
                 END as title,
                 CASE
-                    WHEN guests.guestroom = 1 THEN 'hsl(348, 100%, 61%)'
+                    WHEN guests.guestroom = 1 THEN 'hsl(348, 83%, 47%)'
                     WHEN guests.guestroom = 0 THEN 'hsl(171, 100%, 41%)'
                 END as color,
                 users.name as description,
