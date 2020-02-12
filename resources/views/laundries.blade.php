@@ -257,6 +257,11 @@
 
     <!-- FOOTER ------------->
     @include('layouts.footer')
-    
+
+    <script>
+        $(document).ready( function() {
+            $('#date').val(moment().format('YYYY-MM-DD'));
+        });
+    </script>
 </body>
 </html>
