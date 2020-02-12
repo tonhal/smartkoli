@@ -43,6 +43,7 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => 'guest'], function () {
     
+    Route::get('/authprivacy', function() { return view('auth.authprivacy'); })->name('authprivacy');
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
 });
