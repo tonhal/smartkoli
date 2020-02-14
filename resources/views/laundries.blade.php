@@ -127,6 +127,15 @@
                                 }
                             });
                         }
+
+                        $('#start_time').on('change', function() {
+                            if(this.value == '22:30:00') {
+                                $('#end_time').val(moment(this.value, 'HH:mm:ss').add(30, 'minutes').format('HH:mm:ss'));
+                            } else {
+                                $('#end_time').val(moment(this.value, 'HH:mm:ss').add(1, 'hours').format('HH:mm:ss'));
+                            }
+                            
+                        });
                     </script>
                 </div>
 
