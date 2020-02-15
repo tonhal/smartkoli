@@ -82,7 +82,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <p style="margin-top: 2em; font-size: 12px;">Háttérképek: <a href="https://www.facebook.com/rompetydotcom/" target="_blank">Román Péter</a> · Fejlesztés: <a href="https://hu.linkedin.com/in/agoston-fekete" target="_blank">Fekete Ágoston</a> · Grafikák: Mácsai Lajos</p>
+                                <p style="margin-top: 2em; font-size: 12px;">Háttérképek: <a href="https://www.facebook.com/rompetydotcom/" target="_blank">Román Péter</a> · Fejlesztés: <a href="https://hu.linkedin.com/in/agoston-fekete" target="_blank">Fekete Ágoston</a> · Grafikák: <a href="https://www.linkedin.com/in/lajos-m%C3%A1csai-b4a172165/" target="_blank">Mácsai Lajos</a></p>
                             </div>
                         </div>
                     </form>

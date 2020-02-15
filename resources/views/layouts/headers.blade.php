@@ -2,6 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+<!-- Thumbnail -->
+<meta property="og:image" content="{{ asset('images/kolilogok/teljes_kicsi.png') }}">
+
 <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/mouse.png') }}"/>    
 <link rel="stylesheet" type="text/css" href="{{url('/css/bulma.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url('/css/fullcalendar.css')}}">
