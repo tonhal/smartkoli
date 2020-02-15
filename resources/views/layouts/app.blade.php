@@ -94,7 +94,7 @@
 
     <script>
         $(document).ready( function() {
-            var random = Math.floor((Math.random() * 7) + 1);
+            var random = Math.floor((Math.random() * 9) + 1);
             $('body').css("background-image", "url('../images/backgrounds/bg" + random + ".jpg')");
         });
     </script>
