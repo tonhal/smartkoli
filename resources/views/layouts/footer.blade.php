@@ -3,6 +3,7 @@
         <p><img src='{{ asset("images/kolilogok/teljes_nagy.png") }}' height='150px' width='150px'>
         <p>
             <strong>Mandák SmartKoli App</strong> created by <a href="https://hu.linkedin.com/in/agoston-fekete" target="_blank">Fekete Ágoston</a>.
+            <br>Mandák grafikák by Mácsai Lajos. Háttérképek by Román Péter.
         </p>
         <p>
             <a href="/privacy"><button class="button is-small is-outlined">

@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src='{{url('/add-on/jquery-3.4.1.min.js')}}'></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -31,7 +32,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-158214839-1');
-</script>
+    </script>
 </head>
 <body>
     <div id="app">
@@ -90,5 +91,12 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+        $(document).ready( function() {
+            var random = Math.floor((Math.random() * 7) + 1);
+            $('body').css("background-image", "url('../images/backgrounds/bg" + random + ".jpg')");
+        });
+    </script>
 </body>
 </html>
