@@ -31,7 +31,7 @@
                 </a>
 
                 @if(auth()->user()->isadmin == 1)
-                    <a class="navbar-item" href="#" target="_blank">
+                    <a class="navbar-item" href="/admin">
                         <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>
                     </a>
                 @endif
