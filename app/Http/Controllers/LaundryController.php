@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use DB;
 use DateTime;
 use Validator;
+use Config;
 
 class LaundryController extends Controller
 {
     public function index()
     {
+
+        //dd(Config::get('app.version'));
         $laundries = DB::table('laundries')
             ->join('users', 'laundries.user_id', '=', 'users.id')
             ->select('laundries.id','users.name as title','laundries.start','laundries.end')
