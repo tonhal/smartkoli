@@ -15,7 +15,7 @@
             <a href='https://github.com/tonhal/smartkoli' target='_blank'><img class='social-icon' id="github-icon" src='{{ asset("images/icons/github.png") }}'></a>
         </p>
         <p>
-            Jelenlegi verzió: {{ Config::get('app.version') }}
+            Jelenlegi verzió: <a href="https://github.com/tonhal/smartkoli/releases" target="_blank">{{ Config::get('app.version') }}</a>
         </p>
     </div>
 </footer>

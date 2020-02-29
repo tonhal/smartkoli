@@ -31,9 +31,16 @@
                 </a>
 
                 @if(auth()->user()->isadmin == 1)
-                    <a class="navbar-item" href="/admin">
-                        <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>
-                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>                        
+                        </a>
+                        <div class="navbar-dropdown">
+                           <a class="navbar-item" href='/announcements'>
+                              Közlemények
+                           </a>
+                        </div>
+                   </div>
                 @endif
             </div>
         

@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/privacy', function() { return view('privacy'); });
     Route::get('/deletemyuser', 'UserController@delete');
 
-    Route::get('/admin', 'AdminController@index');
+    Route::get('/announcements', 'PageController@AdminAnnouncements');
 
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     
