@@ -16,6 +16,8 @@
 <script src='{{url('/add-on/moment.js')}}'></script>
 <script src='{{url('/add-on/fullcalendar.js')}}'></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158214839-1"></script>
 <script>

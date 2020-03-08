@@ -31,12 +31,12 @@
                             <div id="root">
                                 <input class="input" type="text" id="textinput" v-model="message">
 
-                                <p>The value of the input is {{ message }}</p>
+                                <p>The value of the input is @{{ message }}</p>
                             </div>
 
                             <script>
                                 new Vue({
-                                    el: '#root'
+                                    el: '#root',
                                     data: {
                                         message: 'Hello World'
                                     }
