@@ -16,7 +16,9 @@
                         <p class="panel-heading">BKK járatok</p>
                         <div class="panel-block">
                             <div id="bkk">
-                                <ul id="departure_list"></ul>
+                                <ul id="departure_list">
+                                    <li v-for="departure in departures">@{{ departure.stopHeadsign }}</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -60,10 +62,10 @@
         function bkk_getdata() {
             $.ajax({
                 type: 'get',
-                url: 'https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop.json?key=apaiary-test&version=3&appVersion=apiary-1.0&includeReferences=true&stopId=BKK_F01221&onlyDepartures=false&limit=60&minutesBefore=0&minutesAfter=30&fbclid=IwAR3SO9lc1zqkClKg9yaoAaNq3Rbkqm5MhF3_BmLSwrx_jbJG8sV52g2M8_U',
+                url: 'https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop.json?key=apaiary-test&version=3&appVersion=apiary-1.0&includeReferences=true&stopId=BKK_F01224&onlyDepartures=false&limit=60&minutesBefore=0&minutesAfter=30&fbclid=IwAR3SO9lc1zqkClKg9yaoAaNq3Rbkqm5MhF3_BmLSwrx_jbJG8sV52g2M8_U',
                 dataType: 'jsonp',
                 success: function(data) {
-                    document.getElementById("departure_list").innerHTML = "";
+                    /*document.getElementById("departure_list").innerHTML = "";
                     data.data.entry.stopTimes.forEach(element => {
                         var date = new Date(0);
                         date.setUTCSeconds(element.predictedDepartureTime);
@@ -72,7 +74,14 @@
                         var text = document.createTextNode(element.stopHeadsign + '(indul: ' + datetext + ')'); 
                         list.appendChild(text);
                         document.getElementById("departure_list").appendChild(list);
-                    });
+                    });*/
+
+                    new Vue({
+                        el: '#bkk',
+                        data: {
+                            departures: data.data.entry.stopTimes
+                        }
+                    })
                 },
                 error: function(data) {
                     alert('error');
