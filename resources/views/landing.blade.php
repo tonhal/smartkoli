@@ -49,9 +49,22 @@
         </section>
 
         <img id="building-img" src='{{ asset("images/kolilogok/epulet.png") }}'>
+    
+        <!--<button class="button" onclick="bkk_getdata()">Getdata</button>-->
+
+        <div id="bkk">
+            <ul id="departure_list">
+
+            </ul>
+        </div>
     </div>
 
     <script>
+
+        /*
+         * BUTTONS HOVER 
+         */
+        
         $( document ).ready( function() {
             var cw = $('.landing-button').width();
             $('.landing-button').css({'height':cw+'px'});

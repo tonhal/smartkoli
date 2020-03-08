@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/deletemyuser', 'UserController@delete');
 
     Route::get('/announcements', 'PageController@AdminAnnouncements');
+    Route::get('/sandbox', 'PageController@AdminSandbox');
 
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     

@@ -36,9 +36,12 @@
                             <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>                        
                         </a>
                         <div class="navbar-dropdown">
-                           <a class="navbar-item" href='/announcements'>
-                              Közlemények
-                           </a>
+                            <a class="navbar-item" href='/announcements'>
+                                Közlemények
+                            </a>
+                            <a class="navbar-item" href='/sandbox'>
+                                (Homokozó)
+                            </a>
                         </div>
                    </div>
                 @endif

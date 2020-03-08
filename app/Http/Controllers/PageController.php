@@ -12,4 +12,11 @@ class PageController extends Controller
 
         return view('announcements');
     }
+
+    public function AdminSandbox() {
+
+        abort_unless(auth()->user()->isadmin == 1, 403);
+
+        return view('sandbox');
+    }
 }
