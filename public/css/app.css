@@ -11108,7 +11108,6 @@ a.text-dark:focus {
 }
 
 body { 
-  /*background-image: url('../images/backgrounds/bg01.jpg');*/
   background-attachment: fixed;
   background-clip: border-box;
   background-position: top left;

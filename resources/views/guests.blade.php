@@ -133,8 +133,8 @@
                             $('#modalDeleteButton').on('click', function() { 
                                 $.ajax({
                                     type: 'post',
-                                    data: { _token: '{{ csrf_token() }}', guestID: id},
-                                    url: '{{ route("deleteGuest") }}',
+                                    data: { _token: '{{ csrf_token() }}', _method: 'delete'},
+                                    url: '/guests/' + id + '/delete',
                                     success: function(result) {
                                         window.location.reload();
                                     },

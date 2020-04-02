@@ -14,5 +14,8 @@
             <a href='https://www.facebook.com/groups/492351804201360/' target='_blank'><img class='social-icon' src='{{ asset("images/icons/facebook.png") }}'></a>
             <a href='https://github.com/tonhal/smartkoli' target='_blank'><img class='social-icon' id="github-icon" src='{{ asset("images/icons/github.png") }}'></a>
         </p>
+        <p>
+            Jelenlegi verzió: <a href="https://github.com/tonhal/smartkoli/releases" target="_blank">{{ Config::get('app.version') }}</a>
+        </p>
     </div>
 </footer>

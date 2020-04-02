@@ -30,9 +30,21 @@
                     <span class='icon' style="color: #017ac2"><i class="fab fa-trello"></i></span><span>Hibabejelentés</span>
                 </a>
 
-                <!--<a class="navbar-item" href="#" target="_blank">
-                    <span class='icon' style="color: #858585"><i class="fas fa-wrench"></i></span><span>Admin</span>
-                </a>-->
+                <!--@if(auth()->user()->isadmin == 1)
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>                        
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href='/announcements'>
+                                Közlemények
+                            </a>
+                            <a class="navbar-item" href='/sandbox'>
+                                (Homokozó)
+                            </a>
+                        </div>
+                   </div>
+                @endif-->
             </div>
         
             <div class="navbar-end">

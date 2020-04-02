@@ -70,7 +70,7 @@ class FileController extends Controller
         return response()->download($pathToFile);
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request, $uuid)
     {
         $user_isadmin = DB::table('users')
             ->where('id', auth()->id())
@@ -78,7 +78,7 @@ class FileController extends Controller
 
         if(intval($request->userid) == auth()->id() || $user_isadmin == 1) {
 
-            $deleteFile = File::where('uuid', $request->uuid)->delete();
+            $deleteFile = File::where('uuid', $uuid)->delete();
 
             unlink(storage_path('app/files/'.$request->filename));
 
