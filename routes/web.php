@@ -11,8 +11,6 @@
 |
 */
 
-//use App\Http\Controllers\GuestController;
-
 Route::group(['middleware' => ['auth','verified']], function () {
 
     Route::get('/', function() { return view('landing'); })->name('landing'); 
