@@ -188,8 +188,8 @@
                             $('#modalDeleteButton').on('click', function() {
                                 $.ajax({
                                     type: 'post',
-                                    data: { _token: '{{ csrf_token() }}', laundryID: id},
-                                    url: '{{ route("deleteLaundry") }}',
+                                    data: { _token: '{{ csrf_token() }}', _method: 'delete'},
+                                    url: '/laundries/' + id + '/delete',
                                     success: function(result) {
                                         window.location.reload();
                                     },

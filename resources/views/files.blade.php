@@ -67,8 +67,8 @@
                         $('#modalDeleteButton').on('click', function() {
                             $.ajax({
                                 type: 'post',
-                                data: { _token: '{{ csrf_token() }}', uuid, filename, userid},
-                                url: '{{ route("deleteFile") }}',
+                                data: { _token: '{{ csrf_token() }}', _method: 'delete', filename, userid},
+                                url: '/files/' + uuid + '/delete',
                                 success: function(result) {
                                     window.location.reload();
                                 },

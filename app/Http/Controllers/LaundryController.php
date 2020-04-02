@@ -86,10 +86,10 @@ class LaundryController extends Controller
         }       
     }
 
-    public function delete(Request $request) {
+    public function delete(Request $request, $id) {
 
         DB::table('laundries')
-            ->where('id', '=', $request->laundryID)
+            ->where('id', '=', $id)
             ->delete();
     }
 }

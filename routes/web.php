@@ -11,25 +11,29 @@
 |
 */
 
-use App\Http\Controllers\GuestController;
+//use App\Http\Controllers\GuestController;
 
 Route::group(['middleware' => ['auth','verified']], function () {
 
     Route::get('/', function() { return view('landing'); })->name('landing'); 
 
+    // Laundries
     Route::get('/laundries', 'LaundryController@index');
-    Route::post('/newlaundry', 'LaundryController@insert')->name('newLaundry');
-    Route::post('/deletelaundry', 'LaundryController@delete')->name('deleteLaundry');
+    Route::post('/laundries/new', 'LaundryController@insert')->name('newLaundry');
+    Route::delete('/laundries/{id}/delete', 'LaundryController@delete')->name('deleteLaundry');
 
-    Route::post('/newguest', 'GuestController@insert')->name('newGuest');
-    Route::post('/deleteguest', 'GuestController@delete')->name('deleteGuest');
+    // Guests
     Route::get('/guests', 'GuestController@index');
-
+    Route::post('/guests/new', 'GuestController@insert')->name('newGuest');
+    Route::delete('/guests/{id}/delete', 'GuestController@delete')->name('deleteGuest');
+    
+    // Files
     Route::get('/files', 'FileController@index');
-    Route::post('/newfile', 'FileController@store')->name('newFile');
-    Route::get('files/{uuid}/download', 'FileController@download')->name('downloadFile');
-    Route::post('deletefile', 'FileController@delete')->name('deleteFile');
+    Route::post('/files/new', 'FileController@store')->name('newFile');
+    Route::get('/files/{uuid}/download', 'FileController@download')->name('downloadFile');
+    Route::delete('/files/{uuid}/delete', 'FileController@delete')->name('deleteFile');
 
+    // Privacy
     Route::get('/privacy', function() { return view('privacy'); });
     Route::get('/deletemyuser', 'UserController@delete');
 

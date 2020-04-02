@@ -108,10 +108,10 @@ class GuestController extends Controller
         }
     }
 
-    public function delete(Request $request) 
+    public function delete(Request $request, $id) 
     {
         DB::table('guests')
-            ->where('id', '=', $request->guestID)
+            ->where('id', '=', $id)
             ->delete();
     }
 }
