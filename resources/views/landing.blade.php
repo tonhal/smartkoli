@@ -16,11 +16,6 @@
             </div>
         </article>
 
-        <div id="test-notification" class="notification is-warning">
-            <button id="test-notification-x" class="delete"></button>
-            <strong>Figyelem!</strong> Az applikáció jelenleg teszt üzemmódban működik, ezért előfodulhatnak hibák, rosszul működő felületek, vagy akár adatvesztés is. A felhasználói élmény javításához szükségünk van a <u>te segítségedre</u> is! Kérlek, ha bármilyen hibát tapasztalsz, jelezd a GitHub-on (cicás ikon alul) vagy írj Ágostonnak. Köszi!
-        </div>
-
         <section class="columns">
             <div class="column">
                 <a href="/laundries"><button class="button is-fullwidth is-large landing-button" id="landing-laundries">

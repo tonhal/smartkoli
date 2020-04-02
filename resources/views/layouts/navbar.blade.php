@@ -30,7 +30,7 @@
                     <span class='icon' style="color: #017ac2"><i class="fab fa-trello"></i></span><span>Hibabejelentés</span>
                 </a>
 
-                @if(auth()->user()->isadmin == 1)
+                <!--@if(auth()->user()->isadmin == 1)
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
                             <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>                        
@@ -44,7 +44,7 @@
                             </a>
                         </div>
                    </div>
-                @endif
+                @endif-->
             </div>
         
             <div class="navbar-end">
