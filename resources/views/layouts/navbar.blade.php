@@ -15,11 +15,11 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="/laundries">
-                    <span class='icon' style="color: #e3c900"><i class="fas fa-tshirt"></i></span><span>Mosások</span>
+                    <span class='icon' style="color: #3490dc"><i class="fas fa-tshirt"></i></span><span>Mosások</span>
                 </a>
         
                 <a class="navbar-item" href="/guests">
-                    <span class='icon' style="color:crimson"><i class="fas fa-bed"></i></span><span>Vendégtáblázat</span>
+                    <span class='icon' style="color:hsl(171, 100%, 41%)"><i class="fas fa-bed"></i></span><span>Vendégtáblázat</span>
                 </a>
 
                 <a class="navbar-item" href="/files">

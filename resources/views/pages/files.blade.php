@@ -11,21 +11,21 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div id="files-card" class="card">
                 <h5 class="card-header">
                     <span class="float-left">
                         Feltöltött fájlok
                     </span>
                     <span class="float-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#newFileModal">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#newFileModal">
                             <span class='icon'><i class="fas fa-upload"></i></span><span>Új fájl feltöltése</span>
                         </button>
                     </span>
                 </h5>
-                <div class="card-body">
+                <div class="card-body talbe-responsive">
                     <table id="fileTable" class="table table-hover">
-                        <thead class="thead-light">
-                            <tr>
+                        <thead>
+                            <tr class="table-success">
                                 <th scope="col" width="40%">Név</th>
                                 <th scope="col" width="20%">Kiterjesztés</th>
                                 <th scope="col" width="20%">Feltöltő</th>
@@ -40,7 +40,7 @@
                                     <td>{{ $file->username }}</td>
                                     <td>
                                         <a href="{{ route("downloadFile", $file->uuid) }}">
-                                        <button class="btn btn-primary btn-sm">
+                                        <button class="btn btn-success btn-sm">
                                             <span class="icon"><i class="fas fa-download"></i></span><span>Letöltés</span>
                                         </button>
                                         </a>

@@ -9,6 +9,6 @@ td {
     overflow: auto;
 }
 
-#files-panel {
-    min-height: 300px;
+#files-card {
+    min-height: 500px;
 }

@@ -142,10 +142,10 @@
         <article class="col-md-6 my-2">
             <div class="card">
                 <h5 class="card-header">Közelgő mosásaim</h5>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table class="table table-hover table-centered">
-                        <thead class="thead-light">
-                            <tr>
+                        <thead>
+                            <tr class="table-primary">
                                 <th scope="col">Nap</th>
                                 <th scope="col">Eleje</th>
                                 <th scope="col">Vége</th>
@@ -200,7 +200,6 @@
     <div class="row">
         <article class="col-md-12 my-2">
             <div class="card">
-                <h5 id="calendarPanelHeading" class="card-header"></h5>
                 <div class="card-body">
                     <div id="calendar"></div>
                 </div>

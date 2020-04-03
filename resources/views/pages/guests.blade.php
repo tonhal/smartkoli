@@ -104,13 +104,15 @@
         <article class="col-md-6 my-2">
             <div class="card">
                 <h5 class="card-header">Az én vendégeim</h5>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table id="yourGuests" class="table table-hover table-centered">
-                        <thead class="thead-light">
-                            <th scope="col">Nap</th>
-                            <th scope="col">Fő</th>
-                            <th scope="col">Vendégszoba</th>
-                            <th scope="col">Szerkesztés</th>
+                        <thead>
+                            <tr style="background-color: rgba(0, 209, 178, 0.4)">
+                                <th scope="col">Nap</th>
+                                <th scope="col">Fő</th>
+                                <th scope="col">Vendégszoba</th>
+                                <th scope="col">Szerkesztés</th>
+                            </tr>
                         </thead>
                         <tbody>
                             @forelse ($user_guests as $guest)
@@ -160,7 +162,6 @@
     <div class="row">
         <article class="col-md-12 my-2">
             <div class="card">
-                <h5 id="calendarPanelHeading" class="card-header"></h5>
                 <div class="card-body">
                     <div id="calendar"></div>
                 </div>
