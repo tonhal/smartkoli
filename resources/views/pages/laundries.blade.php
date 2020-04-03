@@ -4,6 +4,10 @@
     SmartKoli - Mosások
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{url('/css/laundries.css')}}">
+@endsection
+
 @section('content')
     <!-- ------ ÚJ MOSÁS --------------------------------------------------------------------------------------------->
 

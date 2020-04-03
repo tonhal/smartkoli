@@ -1,6 +1,6 @@
 <footer class="footer" style="background-color: #ededed">
     <div class="content has-text-centered">
-        <p><img src='{{ asset("images/kolilogok/teljes_nagy.png") }}' height='150px' width='150px'>
+        <p><img src='{{ asset("images/kolilogok/teljes_nagy.png") }}' width='150px'>
         <p>
             <strong>Mandák SmartKoli App</strong> created by <a href="https://hu.linkedin.com/in/agoston-fekete" target="_blank">Fekete Ágoston</a>.
             <br>Mandák grafikák by <a href="https://www.linkedin.com/in/lajos-m%C3%A1csai-b4a172165/" target="_blank">Mácsai Lajos</a>. Háttérképek by <a href="https://www.facebook.com/rompetydotcom/" target="_blank">Román Péter</a>.

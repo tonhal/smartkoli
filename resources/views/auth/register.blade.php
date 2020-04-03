@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{url('/css/auth.css')}}"> 
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -80,4 +84,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts-body')
+    <script>
+        $(document).ready( function() {
+            var random = Math.floor((Math.random() * 9) + 1);
+            $('body').css("background-image", "url('../images/backgrounds/bg" + random + ".jpg')");
+        });
+    </script>
 @endsection

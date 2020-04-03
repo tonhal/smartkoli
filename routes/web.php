@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/privacy', function() { return view('privacy'); });
     Route::get('/deletemyuser', 'UserController@delete');
 
-    Route::get('/announcements', 'PageController@AdminAnnouncements');
+    Route::get('/admin/dashboard', 'PageController@AdminDashboard')->name('admin');
     Route::get('/sandbox', 'PageController@AdminSandbox');   
 });
 

@@ -15,7 +15,21 @@
 
     <!-- Thumbnail -->
     <meta property="og:image" content="{{ asset('images/kolilogok/teljes_kicsi.png') }}">
+    
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{url('/css/fullcalendar.css')}}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url('/css/main.css')}}">
+    @yield('styles')
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/mouse.png') }}"/>    
+
     <!-- Scripts -->
     <script src='{{url('/add-on/jquery-3.4.1.min.js')}}'></script>
     <script src="{{ asset('js/app.js') }}"></script>
@@ -23,17 +37,7 @@
     
     <script src='{{url('/add-on/moment.js')}}'></script>
     <script src='{{url('/add-on/fullcalendar.js')}}'></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!--<link rel="stylesheet" type="text/css" href="{{url('/css/main.css')}}">-->
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/mouse.png') }}"/>    
+    @yield('scripts-header')
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158214839-1"></script>
@@ -47,7 +51,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom fixed-top">
             <div class="container">
 
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -64,15 +68,21 @@
                         <!-- Menu items -->
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('laundries') }}">Mosások</a>
+                                <a class="nav-link" href="{{ route('laundries') }}">
+                                    <span class='icon' style="color: #e3c900"><i class="fas fa-tshirt"></i></span><span>Mosások</span>
+                                </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('guests') }}">Vendégtáblázat</a>
+                                <a class="nav-link" href="{{ route('guests') }}">
+                                    <span class='icon' style="color:crimson"><i class="fas fa-bed"></i></span><span>Vendégtáblázat</span>
+                                </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('files') }}">Feltöltések</a>
+                                <a class="nav-link" href="{{ route('files') }}">
+                                    <span class='icon' style="color: #217537"><i class="fas fa-file-alt"></i></span><span>Feltöltések</span>
+                                </a>
                             </li>
                         @endauth
                     </ul>
@@ -90,9 +100,16 @@
                                 </li>
                             @endif
                         @else
+                            @if(auth()->user()->isadmin == 1)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin') }}">
+                                        <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <span class='icon'><i class="fas fa-user"></i></span><span>{{ Auth::user()->name }}</span><span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -116,15 +133,32 @@
         <main class="container py-4">
             @yield('content')
         </main>
+
+        @auth
+            <footer class="border-top text-center">
+                <div class="container">
+                    <img class="my-4" src='{{ asset("images/kolilogok/teljes_nagy.png") }}' width='150px'>
+                    <p><small class="text-muted">
+                        <strong>Mandák SmartKoli App</strong> created by <a href="https://hu.linkedin.com/in/agoston-fekete" target="_blank">Fekete Ágoston</a>.
+                        <br>Mandák grafikák by <a href="https://www.linkedin.com/in/lajos-m%C3%A1csai-b4a172165/" target="_blank">Mácsai Lajos</a>. Háttérképek by <a href="https://www.facebook.com/rompetydotcom/" target="_blank">Román Péter</a>.
+                    </small></p>
+                    <p class="text-muted">
+                        <a href="/privacy" class="btn btn-sm btn-outline-secondary">
+                            <span class='icon'><i class="fas fa-user-lock"></i></span><span>Adatkezelési tájékoztató</span>
+                        </a>
+                    </p>
+                    <p class="text-muted">
+                        <a href='https://www.facebook.com/groups/492351804201360/' target='_blank'><img height="32px" width="32px" class='social-icon' src='{{ asset("images/icons/facebook.png") }}'></a>
+                        <a href='https://github.com/tonhal/smartkoli' target='_blank'><img height="32px" width="32px" class='social-icon' id="github-icon" src='{{ asset("images/icons/github.png") }}'></a>
+                    </p>
+                    <p class="mb-0 pb-4 text-muted">
+                        Jelenlegi verzió: <a href="https://github.com/tonhal/smartkoli/releases" target="_blank">{{ Config::get('app.version') }}</a>
+                    </p>
+                </div>
+            </footer>
+        @endauth
     </div>
 
-    <script>
-        /*$(document).ready( function() {
-            var random = Math.floor((Math.random() * 9) + 1);
-            $('body').css("background-image", "url('../images/backgrounds/bg" + random + ".jpg')");
-        });*/
-
-        
-    </script>
+    @yield('scripts-body')
 </body>
 </html>

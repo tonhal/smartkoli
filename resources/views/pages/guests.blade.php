@@ -4,6 +4,10 @@
     SmartKoli - Vendégek
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{url('/css/guests.css')}}">
+@endsection
+
 @section('content')
 
     <!-- ------ ÚJ VENDÉG --------------------------------------------------------------------------------------------->

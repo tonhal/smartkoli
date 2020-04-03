@@ -4,6 +4,10 @@
     SmartKoli - Feltöltések
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{url('/css/files.css')}}">
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">

@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function AdminAnnouncements() {
+    public function AdminDashboard() {
 
         abort_unless(auth()->user()->isadmin == 1, 403);
 
-        return view('announcements');
+        return view('pages.admin.dashboard');
     }
 
     public function AdminSandbox() {
