@@ -67,12 +67,12 @@ section {
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
+  /*font-size: 0.9rem;*/
+  font-weight: 500;
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #f2f5f7;
 }
 
 [tabindex="-1"]:focus {
@@ -11100,14 +11100,16 @@ a.text-dark:focus {
   }
 }
 
+/* MY CSS */
+
 #mandak-logo {
   width: auto;
   height: auto;
-  max-width: 15%;
-  max-height: 15%;
+  max-width: 120px;
+  max-height: 60px;
 }
 
-body { 
+/*body { 
   background-attachment: fixed;
   background-clip: border-box;
   background-position: top left;
@@ -11116,8 +11118,20 @@ body {
   height: 100%;
   margin: 0;
   background-attachment: fixed;
+}*/
+
+#login-card {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.icon {
+  margin-right: 0.4em;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.75);
+  height: 100%;
+}
+
+.table-centered td, .table-centered th {
+  text-align: center;
 }

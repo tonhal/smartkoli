@@ -16,17 +16,17 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/', function() { return view('landing'); })->name('landing'); 
 
     // Laundries
-    Route::get('/laundries', 'LaundryController@index');
+    Route::get('/laundries', 'LaundryController@index')->name('laundries');
     Route::post('/laundries/new', 'LaundryController@insert')->name('newLaundry');
     Route::delete('/laundries/{id}/delete', 'LaundryController@delete')->name('deleteLaundry');
 
     // Guests
-    Route::get('/guests', 'GuestController@index');
+    Route::get('/guests', 'GuestController@index')->name('guests');
     Route::post('/guests/new', 'GuestController@insert')->name('newGuest');
     Route::delete('/guests/{id}/delete', 'GuestController@delete')->name('deleteGuest');
     
     // Files
-    Route::get('/files', 'FileController@index');
+    Route::get('/files', 'FileController@index')->name('files');
     Route::post('/files/new', 'FileController@store')->name('newFile');
     Route::get('/files/{uuid}/download', 'FileController@download')->name('downloadFile');
     Route::delete('/files/{uuid}/delete', 'FileController@delete')->name('deleteFile');
@@ -36,10 +36,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/deletemyuser', 'UserController@delete');
 
     Route::get('/announcements', 'PageController@AdminAnnouncements');
-    Route::get('/sandbox', 'PageController@AdminSandbox');
-
-    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-    
+    Route::get('/sandbox', 'PageController@AdminSandbox');   
 });
 
 //Auth::routes();

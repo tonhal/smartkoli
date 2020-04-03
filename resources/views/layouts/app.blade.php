@@ -7,15 +7,22 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @section('title')  
+            SmartKoli
+        @show
+    </title>
 
     <!-- Thumbnail -->
     <meta property="og:image" content="{{ asset('images/kolilogok/teljes_kicsi.png') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{url('/css/fullcalendar.css')}}">
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src='{{url('/add-on/jquery-3.4.1.min.js')}}'></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    
+    <script src='{{url('/add-on/moment.js')}}'></script>
+    <script src='{{url('/add-on/fullcalendar.js')}}'></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,6 +30,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!--<link rel="stylesheet" type="text/css" href="{{url('/css/main.css')}}">-->
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/mouse.png') }}"/>    
@@ -41,17 +49,32 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img id="mandak-logo" src='{{ asset("images/kolilogok/szoveg_nagy.png") }}'>
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto ml-md-4 pt-md-1">
+                        <!-- Menu items -->
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('laundries') }}">Mosások</a>
+                            </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('guests') }}">Vendégtáblázat</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('files') }}">Feltöltések</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -90,16 +113,18 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="container py-4">
             @yield('content')
         </main>
     </div>
 
     <script>
-        $(document).ready( function() {
+        /*$(document).ready( function() {
             var random = Math.floor((Math.random() * 9) + 1);
             $('body').css("background-image", "url('../images/backgrounds/bg" + random + ".jpg')");
-        });
+        });*/
+
+        
     </script>
 </body>
 </html>

@@ -44,7 +44,7 @@ class FileController extends Controller
             ->where('id', auth()->id())
             ->value('isadmin');
 
-        return view('files', compact('files', 'user_isadmin'));
+        return view('pages.files', compact('files', 'user_isadmin'));
     }
 
     public function store(Request $request)

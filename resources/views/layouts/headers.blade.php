@@ -6,8 +6,8 @@
 <meta property="og:image" content="{{ asset('images/kolilogok/teljes_kicsi.png') }}">
 
 <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/mouse.png') }}"/>    
-<link rel="stylesheet" type="text/css" href="{{url('/css/bulma.css')}}">
-<link rel="stylesheet" type="text/css" href="{{url('/css/main.css')}}">
+<!--<link rel="stylesheet" type="text/css" href="{{url('/css/bulma.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('/css/main.css')}}">-->
 <link rel="stylesheet" type="text/css" href="{{url('/css/fullcalendar.css')}}">
 
 

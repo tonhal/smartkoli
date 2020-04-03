@@ -4,6 +4,8 @@
     <title>SmartKoli - Adatkezelés</title>  
     @include('layouts.headers')
     <link rel="stylesheet" type="text/css" href="{{url('/css/privacy.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('/css/bulma.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('/css/main.css')}}">
 </head>
 <body>
     <!-- NAVBAR ------------->

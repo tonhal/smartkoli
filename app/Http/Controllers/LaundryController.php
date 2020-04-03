@@ -34,7 +34,7 @@ class LaundryController extends Controller
             ->orderByRaw('3')
             ->get();
                
-        return view('laundries', compact('laundries','user_laundries'));
+        return view('pages.laundries', compact('laundries','user_laundries'));
     }
 
     public function insert(Request $request)
