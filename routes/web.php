@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/deletemyuser', 'UserController@delete');
 
     Route::get('/admin/dashboard', 'PageController@AdminDashboard')->name('admin');
-    Route::get('/sandbox', 'PageController@AdminSandbox');   
+    Route::get('/sandbox', 'PageController@AdminSandbox');
 });
 
 //Auth::routes();

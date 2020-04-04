@@ -44,7 +44,7 @@
                                             <span class="icon"><i class="fas fa-download"></i></span><span>Letöltés</span>
                                         </button>
                                         </a>
-                                        <button id="{{ $file->uuid }}" class="btn btn-danger btn-sm" @if($file->user_id != auth()->id() && $user_isadmin == 0) disabled @endif onclick="deleteFile(this.id, '{{ $file->filename }}','{{ $file->user_id}}')">
+                                        <button id="{{ $file->uuid }}" class="btn btn-danger btn-sm" @if($file->user_id != auth()->id() && auth()->user()->isadmin != 1) disabled @endif onclick="deleteFile(this.id, '{{ $file->filename }}','{{ $file->user_id}}')">
                                             <span class="icon"><i class="fas fa-times"></i></span><span>Törlés</span>
                                         </button>
                                     </td>
