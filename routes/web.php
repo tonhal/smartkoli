@@ -35,7 +35,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/privacy', function() { return view('privacy'); });
     Route::get('/deletemyuser', 'UserController@delete');
 
+    // Admin
     Route::get('/admin/dashboard', 'PageController@AdminDashboard')->name('admin');
+
+    Route::get('/admin/proxies', 'ProxyController@index');
+    Route::post('/admin/proxies/new', 'ProxyController@insert')->name('newProxy');
+
     Route::get('/sandbox', 'PageController@AdminSandbox');
 });
 
