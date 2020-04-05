@@ -6,27 +6,23 @@
 
 @section('content')
     <div class="row">
-        <article class="col-md-6">
-            <div class="card">
-                
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <span class="display-1">0</span><br>nap egértámadás nélkül.
-                        </div>
-                        <div class="col-6 vertical-center">
-                            <button class="btn btn-block btn-secondary">
-                                <img src="{{ asset('images/icons/mouse.png') }}" alt="Little mouse">
-                                <br>Egeret láttam!
-                            </button>
-                        </div>
-                    </div>
+        <article class="col-md-9">
+
+        </article>
+        <article class="col-md-3">
+            <div class="card"> 
+                <div id="mouse-card-body" class="card-body">
+                    <span class="display-1 align-middle">{{ $days_since_last_mouse }}</span><br>nap egértámadás nélkül.
+                    <a href="/mouse" class="btn btn-block btn-secondary mt-2">
+                        <img src="{{ asset('images/icons/mouse.png') }}" alt="Little mouse">
+                        <br>Egeret láttam!
+                    </a>
                 </div>
             </div>
         </article>
 
         <script>
-
+            
         </script>
 
         

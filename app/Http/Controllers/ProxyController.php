@@ -11,6 +11,8 @@ class ProxyController extends Controller
 {
     public function index() {
 
+        abort_unless(auth()->user()->isadmin == 1, 403);
+
         $doors = DB::table('doors')->select('id','name')->get()->toArray();
 
         foreach($doors as $door) {
@@ -36,6 +38,8 @@ class ProxyController extends Controller
     }
 
     public function insert(Request $request) {
+
+        abort_unless(auth()->user()->isadmin == 1, 403);
 
         DB::table('users')
             ->where('id', $request->userid)

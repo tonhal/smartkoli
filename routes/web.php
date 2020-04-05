@@ -13,7 +13,8 @@
 
 Route::group(['middleware' => ['auth','verified']], function () {
 
-    Route::get('/', function() { return view('pages.landing'); })->name('landing'); 
+    Route::get('/', 'PageController@LandingPage')->name('landing'); 
+    Route::get('/mouse', 'PageController@MouseSeen')->name('mouseSeen'); 
 
     // Laundries
     Route::get('/laundries', 'LaundryController@index')->name('laundries');
