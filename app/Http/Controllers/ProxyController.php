@@ -37,13 +37,32 @@ class ProxyController extends Controller
         return view('pages.admin.proxies', compact('doors','users_with_proxy'));
     }
 
-    public function insert(Request $request) {
+    /*
+     * PROXY CONTROLLERS
+     */
+
+    public function insertProxy(Request $request) {
 
         abort_unless(auth()->user()->isadmin == 1, 403);
 
         DB::table('users')
             ->where('id', $request->userid)
             ->update(['proxy' => $request->proxycode]);
+
+        return redirect('/admin/proxies');
+    }
+
+    /*
+     * DOOR CONTROLLERS
+     */
+
+    public function deleteDoor(Request $request, $id) {
+
+        abort_unless(auth()->user()->isadmin == 1, 403);
+
+        DB::table('doors')
+            ->where('id', $id)
+            ->delete();
 
         return redirect('/admin/proxies');
     }

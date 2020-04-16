@@ -39,8 +39,10 @@ Route::group(['middleware' => ['auth','verified']], function () {
     // Admin
     Route::get('/admin/dashboard', 'PageController@AdminDashboard')->name('admin');
 
+    //Proxy
     Route::get('/admin/proxies', 'ProxyController@index');
-    Route::post('/admin/proxies/new', 'ProxyController@insert')->name('newProxy');
+    Route::post('/admin/proxies/new', 'ProxyController@insertProxy')->name('newProxy');
+    Route::delete('/admin/proxies/door/{id}/delete', 'ProxyController@deleteDoor')->name('deleteDoor');
 
     Route::get('/sandbox', 'PageController@AdminSandbox');
 });

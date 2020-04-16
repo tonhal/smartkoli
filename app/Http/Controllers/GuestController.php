@@ -113,5 +113,7 @@ class GuestController extends Controller
         DB::table('guests')
             ->where('id', '=', $id)
             ->delete();
+
+        return response()->json(['success' => 'true']);
     }
 }

@@ -25,7 +25,9 @@
                             <th scope="col">Név</th>
                             <th scope="col">Proxy #</th>
                             @foreach ($doors as $door)
-                                <th scope="col">{{ $door->name }}</th>
+                                <th scope="col"><span>{{ $door->name }}</span>
+                                    <a href="#" data-toggle="modal" data-target="#delete-door-modal" data-doorid="{{ $door->id }}" class="delete-door-link"><span class="ml-2" style="color:crimson"><i class="fas fa-trash-alt"></i></span></a>
+                                </th>
                             @endforeach
                             <th scope="col">Szerkesztés</th>
                         </thead>
@@ -59,7 +61,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Új proxy Hozzáadása</h5>
+                    <h5 class="modal-title">Új proxy Hozzáadása</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -82,33 +84,49 @@
                             <label for="proxy-code">Add meg a proxy kódját:</label>
                             <input type="text" class="form-control" placeholder="A proxy 10 jegyű kódja" name="proxycode" id="proxycode" maxlength="10">
                         </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
-                        <button type="submit" id="delete-modal-delete-button" class="btn btn-danger">Hozzáadás</button>
+                        <button type="submit" class="btn btn-primary">Hozzáadás</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <script>
-        /*
-        function newProxy() {
-            var userid = $('#user-select').val();
-            var proxycode = $('#proxy-code').val();
+    <div class="modal fade" id="delete-door-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ajtó törlése</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Biztosan törölni akarod ezt az ajtót? 
+                    Ezzel törlöd az összes rá vonatkozó proxy szabályt is.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                    <form id="delete-door-form" action="" method="post">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" id="delete-modal-delete-button" class="btn btn-danger">Törlés</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            $.ajax({
-                type: 'post',
-                data: { _token: '{{ csrf_token() }}', userid, proxycode},
-                url: '{{ route("newProxy") }}',
-                success: function(result) {
-                    //window.location.reload();
-                },
-                error: function(result) {
-                    alert('Something went wrong.');
-                }
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".delete-door-link").forEach(link => {
+                link.addEventListener("click", () => {
+                    document.getElementById("delete-door-form").setAttribute("action", "/admin/proxies/door/" + link.dataset.doorid + "/delete");
+                }); 
             });
-        }*/
+        });
     </script>
 @endsection
 

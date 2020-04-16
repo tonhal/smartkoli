@@ -21,8 +21,33 @@
             </div>
         </article>
 
+    </div>
+    <div class="row">
+        <article class="col-md-9">
+    
+        </article>
+        <article class="col-md-3">
+            <div class="card"> 
+                <div id="bkk" class="card-body">
+                    @{{ info }}
+                </div>
+            </div>
+        </article>
+
         <script>
-            
+            /*new Vue({
+                el: '#bkk',
+                data () {
+                    return {
+                        info: null
+                    }
+                },
+                mounted () {
+                    axios
+                        .get('https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop.json?key=apaiary-test&version=3&appVersion=apiary-1.0&includeReferences=true&stopId=BKK_F01224&onlyDepartures=false&limit=60&minutesBefore=0&minutesAfter=30&fbclid=IwAR3SO9lc1zqkClKg9yaoAaNq3Rbkqm5MhF3_BmLSwrx_jbJG8sV52g2M8_U', {crossdomain: true})
+                        .then(response => (this.info = response))
+                }
+            })*/
         </script>
 
         

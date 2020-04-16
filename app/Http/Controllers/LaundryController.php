@@ -91,5 +91,7 @@ class LaundryController extends Controller
         DB::table('laundries')
             ->where('id', '=', $id)
             ->delete();
+
+        return response()->json(['success' => 'true']);
     }
 }
