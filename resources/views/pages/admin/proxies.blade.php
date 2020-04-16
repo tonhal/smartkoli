@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <span class="float-left">Proxy szabályok</span>
                     <span class="float-right">
-                        <button class="btn btn-success btn-sm">
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#new-door-modal">
                             <span class="icon"><i class="fas fa-door-open"></i></span><span>Új ajtó</span>
                         </button>
                         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#new-proxy-modal">
@@ -43,7 +43,7 @@
                                             <td><i class="fas fa-times-circle" style="color:red"></i></td>
                                         @endif
                                     @endforeach
-                                    <td><button class="btn btn-secondary btn-sm">Szerkesztés</td>
+                                    <td><button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#edit-proxy-modal">Szerkesztés</td>
                                 </tr>
                             @empty
                                 <tr><td colspan="{{ count($doors) + 3}}">Még nem adtál senkihez sem proxyt.</td></tr>
@@ -57,6 +57,7 @@
 
     <!-- -------------------------------- MODALS ---------------------------------------------------------------------->
 
+    <!-- begin: New Proxy Modal -->
     <div class="modal fade" id="new-proxy-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -82,7 +83,7 @@
                         </div>
                         <div class="form-group">
                             <label for="proxy-code">Add meg a proxy kódját:</label>
-                            <input type="text" class="form-control" placeholder="A proxy 10 jegyű kódja" name="proxycode" id="proxycode" maxlength="10">
+                            <input type="text" class="form-control" placeholder="A proxy 10 jegyű kódja" name="proxycode" id="proxycode" maxlength="10" autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -93,7 +94,65 @@
             </div>
         </div>
     </div>
+    <!-- end: New Proxy Modal -->
 
+    <!-- begin: Edit Proxy Modal -->
+    <div class="modal fade" id="edit-proxy-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Proxy szerkesztése</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- form -->
+                    <div class="modal-body">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Törlés</button>
+                        <button type="submit" class="btn btn-primary">Mentés</button>
+                    </div>
+                <!-- form -->
+            </div>
+        </div>
+    </div>
+    <!-- end: Edit Proxy Modal -->
+
+    <!-- begin: New Door Modal -->
+    <div class="modal fade" id="new-door-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Új ajtó hozzáadása</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/admin/proxies/door/new" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label form="door-name">Add meg az ajtó nevét:</label> 
+                            <input class="form-control" type="text" name="door_name" id="door-name" placeholder="Ide írd az ajtó nevét..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                        <button type="submit" class="btn btn-success">Hozzáadás</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end: New Door Modal -->
+
+    <!-- begin: Delete Door Modal -->
     <div class="modal fade" id="delete-door-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -118,6 +177,7 @@
             </div>
         </div>
     </div>
+    <!-- end: Delete Door Modal -->
 
     <script>
         window.addEventListener("DOMContentLoaded", () => {

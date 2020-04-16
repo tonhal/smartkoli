@@ -45,6 +45,8 @@ class ProxyController extends Controller
 
         abort_unless(auth()->user()->isadmin == 1, 403);
 
+        /* !!! HANDLE THE SITUATION WHERE THIS USER ALREADY HAS A PROXY */
+
         DB::table('users')
             ->where('id', $request->userid)
             ->update(['proxy' => $request->proxycode]);
@@ -56,13 +58,21 @@ class ProxyController extends Controller
      * DOOR CONTROLLERS
      */
 
+    public function insertDoor(Request $request) {
+
+        abort_unless(auth()->user()->isadmin == 1, 403);
+
+        $door = Door::create(['name' => $request->door_name]);
+
+        return redirect('/admin/proxies');
+    }
+
+
     public function deleteDoor(Request $request, $id) {
 
         abort_unless(auth()->user()->isadmin == 1, 403);
 
-        DB::table('doors')
-            ->where('id', $id)
-            ->delete();
+        Door::destroy($id);
 
         return redirect('/admin/proxies');
     }
