@@ -1,3 +1,26 @@
 #mouse-card-body {
     text-align: center;
 }
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
+}
+
+#carouselExampleIndicators {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+}
+
+  
+@keyframes blinker {
+    50% {
+        opacity: 0.5;
+    }
+}

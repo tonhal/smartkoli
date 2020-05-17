@@ -115,7 +115,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Törlés</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#delete-proxy-modal">Törlés</button>
                         <button type="submit" class="btn btn-primary">Mentés</button>
                     </div>
                 <!-- form -->
@@ -123,6 +123,32 @@
         </div>
     </div>
     <!-- end: Edit Proxy Modal -->
+
+    <!-- begin: Delete Proxy Modal -->
+    <div class="modal fade" id="delete-proxy-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ajtó törlése</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Biztosan törölni akarod a felhasználó proxy-ját?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                    <form id="delete-proxy-form" action="" method="post">
+                        @method('patch')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Törlés</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: Delete Proxy Modal -->
 
     <!-- begin: New Door Modal -->
     <div class="modal fade" id="new-door-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

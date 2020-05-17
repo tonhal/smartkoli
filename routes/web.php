@@ -13,8 +13,8 @@
 
 Route::group(['middleware' => ['auth','verified']], function () {
 
-    Route::get('/', 'PageController@LandingPage')->name('landing'); 
-    Route::get('/mouse', 'PageController@MouseSeen')->name('mouseSeen'); 
+    Route::get('/', 'LandingPageController@LandingPage')->name('landing'); 
+    Route::patch('/mouse', 'LandingPageController@MouseSeen')->name('mouseSeen'); 
 
     // Laundries
     Route::get('/laundries', 'LaundryController@index')->name('laundries');
@@ -40,15 +40,13 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/admin/dashboard', 'PageController@AdminDashboard')->name('admin');
 
     //Proxy
-    Route::get('/admin/proxies', 'ProxyController@index');
+    Route::get('/admin/proxies', 'ProxyController@index')->name('proxies');
     Route::post('/admin/proxies/new', 'ProxyController@insertProxy')->name('newProxy');
     Route::post('/admin/proxies/door/new', 'ProxyController@insertDoor')->name('newDoor');
     Route::delete('/admin/proxies/door/{id}/delete', 'ProxyController@deleteDoor')->name('deleteDoor');
 
     Route::get('/sandbox', 'PageController@AdminSandbox');
 });
-
-//Auth::routes();
 
 Auth::routes(['verify' => true]);
 

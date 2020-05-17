@@ -102,10 +102,16 @@
                             @endif
                         @else
                             @if(auth()->user()->isadmin == 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin') }}">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>
                                     </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('proxies') }}">
+                                           Proxy
+                                        </a>
+                                    </div>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
