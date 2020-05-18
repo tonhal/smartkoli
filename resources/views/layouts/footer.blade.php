@@ -6,7 +6,7 @@
             <br>Mandák grafikák by <a href="https://www.linkedin.com/in/lajos-m%C3%A1csai-b4a172165/" target="_blank">Mácsai Lajos</a>. Háttérképek by <a href="https://www.facebook.com/rompetydotcom/" target="_blank">Román Péter</a>.
         </small></p>
         <p class="text-muted">
-            <a href="/privacy" class="btn btn-sm btn-outline-secondary">
+            <a href="{{ route('privacy') }}" class="btn btn-sm btn-outline-secondary">
                 <span class='icon'><i class="fas fa-user-lock"></i></span><span>Adatkezelési tájékoztató</span>
             </a>
         </p>

@@ -7,11 +7,11 @@
 @section('content')
     <div class="row">
         <article class="col-md-9">
-            <div class="card"> 
-                <h4 class="card-header">Hírek</h4> 
-                <div class="card-body">
-                    
-                </div>
+            <div class="jumbotron h-100"> 
+                <h1 class="display-6">Üdvözlünk a Mandák SmartKoli App-ban!<h1>
+                <p class="lead">Jó újra látni, {{ auth()->user()->name }}!</p>
+                <hr class="my-4">
+                <p class="lead text-muted">Pár dolog megújult az alkalmazásban. Nézz körbe, és használd egészséggel.</p>
             </div>
         </article>
         <article class="col-md-3">
@@ -22,7 +22,7 @@
                     <form action="mouse" method="post">
                         @csrf
                         @method('patch')
-                        <button type="submit" class="btn btn-block btn-secondary mt-2">
+                        <button type="submit" class="btn btn-block btn-secondary mt-2" data-toggle="tooltip" data-placement="bottom" title="Számláló">
                             <img src="{{ asset('images/icons/mouse.png') }}" alt="Little mouse">
                             <br>Egeret láttam!
                         </button>

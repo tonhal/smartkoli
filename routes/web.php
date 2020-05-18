@@ -33,8 +33,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::delete('/files/{uuid}/delete', 'FileController@delete')->name('deleteFile');
 
     // Privacy
-    Route::get('/privacy', function() { return view('privacy'); });
-    Route::get('/deletemyuser', 'UserController@delete');
+    Route::get('/privacy', function() { return view('pages.privacy'); })->name('privacy');
+    Route::delete('/user/delete', 'UserController@delete')->name('deleteuser');
 
     // Admin
     Route::get('/admin/dashboard', 'PageController@AdminDashboard')->name('admin');
