@@ -8,7 +8,7 @@
     <div class="row">
         <article class="col-md-9">
             <div class="jumbotron h-100"> 
-                <h1 class="display-6">Üdvözlünk a Mandák SmartKoli App-ban!<h1>
+                <h1 class="display-6">Üdvözlünk a Mandák SmartKoli Appban!<h1>
                 <p class="lead">Jó újra látni, {{ auth()->user()->name }}!</p>
                 <hr class="my-4">
                 <p class="lead text-muted">Pár dolog megújult az alkalmazásban. Nézz körbe, és használd egészséggel.</p>
@@ -46,7 +46,7 @@
                     <p class="text-muted">Jelenlegi mosás:</p>
 
                     @if(!$current_laundry)
-                        <div class="alert alert-success show">A mosógép jelengleg szabad.</div>
+                        <div class="alert alert-success show">A mosógép jelenleg szabad.</div>
                     @else 
                         <div class="alert alert-primary show">
                             <strong>{{ $current_laundry->name }}</strong> 
