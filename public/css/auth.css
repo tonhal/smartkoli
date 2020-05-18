@@ -1,0 +1,14 @@
+body { 
+    background-attachment: fixed;
+    background-clip: border-box;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+}
+  
+#login-card {
+    background: rgba(255, 255, 255, 0.75);
+}

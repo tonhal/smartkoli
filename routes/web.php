@@ -13,36 +13,40 @@
 
 Route::group(['middleware' => ['auth','verified']], function () {
 
-    Route::get('/', function() { return view('landing'); })->name('landing'); 
+    Route::get('/', 'LandingPageController@LandingPage')->name('landing'); 
+    Route::patch('/mouse', 'LandingPageController@MouseSeen')->name('mouseSeen'); 
 
     // Laundries
-    Route::get('/laundries', 'LaundryController@index');
+    Route::get('/laundries', 'LaundryController@index')->name('laundries');
     Route::post('/laundries/new', 'LaundryController@insert')->name('newLaundry');
     Route::delete('/laundries/{id}/delete', 'LaundryController@delete')->name('deleteLaundry');
 
     // Guests
-    Route::get('/guests', 'GuestController@index');
+    Route::get('/guests', 'GuestController@index')->name('guests');
     Route::post('/guests/new', 'GuestController@insert')->name('newGuest');
     Route::delete('/guests/{id}/delete', 'GuestController@delete')->name('deleteGuest');
     
     // Files
-    Route::get('/files', 'FileController@index');
+    Route::get('/files', 'FileController@index')->name('files');
     Route::post('/files/new', 'FileController@store')->name('newFile');
     Route::get('/files/{uuid}/download', 'FileController@download')->name('downloadFile');
     Route::delete('/files/{uuid}/delete', 'FileController@delete')->name('deleteFile');
 
     // Privacy
-    Route::get('/privacy', function() { return view('privacy'); });
-    Route::get('/deletemyuser', 'UserController@delete');
+    Route::get('/privacy', function() { return view('pages.privacy'); })->name('privacy');
+    Route::delete('/user/delete', 'UserController@delete')->name('deleteuser');
 
-    Route::get('/announcements', 'PageController@AdminAnnouncements');
+    // Admin
+    Route::get('/admin/dashboard', 'PageController@AdminDashboard')->name('admin');
+
+    //Proxy
+    Route::get('/admin/proxies', 'ProxyController@index')->name('proxies');
+    Route::post('/admin/proxies/new', 'ProxyController@insertProxy')->name('newProxy');
+    Route::post('/admin/proxies/door/new', 'ProxyController@insertDoor')->name('newDoor');
+    Route::delete('/admin/proxies/door/{id}/delete', 'ProxyController@deleteDoor')->name('deleteDoor');
+
     Route::get('/sandbox', 'PageController@AdminSandbox');
-
-    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-    
 });
-
-//Auth::routes();
 
 Auth::routes(['verify' => true]);
 

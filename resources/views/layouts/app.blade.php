@@ -7,25 +7,38 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @section('title')  
+            SmartKoli
+        @show
+    </title>
 
     <!-- Thumbnail -->
     <meta property="og:image" content="{{ asset('images/kolilogok/teljes_kicsi.png') }}">
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src='{{url('/add-on/jquery-3.4.1.min.js')}}'></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{url('/css/fullcalendar.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url('/css/main.css')}}">
+    @yield('styles')
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/mouse.png') }}"/>    
+
+    <!-- Scripts -->
+    <script src='{{url('/add-on/jquery-3.4.1.min.js')}}'></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    
+    <script src='{{url('/add-on/moment.js')}}'></script>
+    <script src='{{url('/add-on/fullcalendar.js')}}'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    @yield('scripts-header')
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158214839-1"></script>
@@ -39,19 +52,40 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom fixed-top">
             <div class="container">
+
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img id="mandak-logo" src='{{ asset("images/kolilogok/szoveg_nagy.png") }}'>
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto ml-md-4 pt-md-1">
+                        <!-- Menu items -->
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('laundries') }}">
+                                    <span class='icon' style="color: #3490dc"><i class="fas fa-tshirt"></i></span><span id="laundry-nav-text">Mosások</span>
+                                </a>
+                            </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('guests') }}">
+                                    <span class='icon' style="color:hsl(171, 100%, 41%)"><i class="fas fa-bed"></i></span><span id="guest-nav-text">Vendégtáblázat</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('files') }}">
+                                    <span class='icon' style="color: #28a745"><i class="fas fa-file-alt"></i></span><span id="file-nav-text">Feltöltések</span>
+                                </a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -67,9 +101,24 @@
                                 </li>
                             @endif
                         @else
+                            <!--
+                            @if(auth()->user()->isadmin == 1)
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <span class='icon' style="color: #858585"><i class="fa fa-cog"></i></span><span>Admin</span>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('proxies') }}">
+                                           Proxy
+                                        </a>
+                                    </div>
+                                </li>
+                            @endif
+                            -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <span class='icon'><i class="fas fa-user"></i></span><span>{{ Auth::user()->name }}</span><span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -90,15 +139,20 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="container py-4">
             @yield('content')
         </main>
+
+        @yield('footer')
     </div>
 
+    @yield('scripts-body')
+
     <script>
-        $(document).ready( function() {
-            var random = Math.floor((Math.random() * 9) + 1);
-            $('body').css("background-image", "url('../images/backgrounds/bg" + random + ".jpg')");
+        $(document).ready(function() {
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            });
         });
     </script>
 </body>

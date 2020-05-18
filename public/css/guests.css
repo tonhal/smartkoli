@@ -16,3 +16,16 @@ input, .select, .control {
 .button-column {
     text-align: center !important;
 }
+
+.fc-today-button, 
+.fc-today-button:disabled, 
+.fc-today-button:hover, 
+.fc-prev-button,
+.fc-prev-button:disabled,
+.fc-prev-button:hover,
+.fc-next-button,
+.fc-next-button:disabled,
+.fc-next-button:hover {
+    background-color: hsl(171, 100%, 41%);
+    border-color: hsl(171, 100%, 41%);
+}

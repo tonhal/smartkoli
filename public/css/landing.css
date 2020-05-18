@@ -1,37 +1,26 @@
-
-#welcomeMessage {
-    margin-top: 2em;
+#mouse-card-body {
+    text-align: center;
 }
 
-.landing-button {
-    color: white;
-    /*height: 6em;*/
-    /*margin-bottom: 3em;*/
-    -webkit-box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.35);
--moz-box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.35);
-box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.35);
+.blink {
+    animation: blinker 1s linear infinite;
 }
 
-#landing-laundries {
-    background-color: #e3c900;
-    border-color: #e3c900;
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
 }
 
-#landing-guests {
-    background-color: crimson;
-    border-color: crimson;
+#carouselExampleIndicators {
+    width: 100%;
+    height: auto;
+    padding: 50px;
 }
 
-#landing-files {
-    background-color: #217537;
-    border-color: #217537;
-}
-
-#landing-trello {
-    background-color: #017ac2;
-    border-color: #017ac2;
-}
-
-#building-img {
-    margin-bottom: 1em;
+  
+@keyframes blinker {
+    50% {
+        opacity: 0.5;
+    }
 }

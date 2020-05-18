@@ -50,7 +50,7 @@ class GuestController extends Controller
             ->get();
         
 
-        return view('guests', compact('guests', 'user_guests'));
+        return view('pages.guests', compact('guests', 'user_guests'));
     }
     
     public function insert(Request $request)
@@ -113,5 +113,7 @@ class GuestController extends Controller
         DB::table('guests')
             ->where('id', '=', $id)
             ->delete();
+
+        return response()->json(['success' => 'true']);
     }
 }

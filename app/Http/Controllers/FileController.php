@@ -40,11 +40,7 @@ class FileController extends Controller
                     END as faextcolor"))
             ->get();
 
-        $user_isadmin = DB::table('users')
-            ->where('id', auth()->id())
-            ->value('isadmin');
-
-        return view('files', compact('files', 'user_isadmin'));
+        return view('pages.files', compact('files'));
     }
 
     public function store(Request $request)
