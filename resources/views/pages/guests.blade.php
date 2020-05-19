@@ -211,6 +211,7 @@
     <script>
         $(document).ready( function() {
             $('#arrival').val(moment().format('YYYY-MM-DD'));
+            $('#nav-guests').css('font-weight','bold');
         });
     </script>
 @endsection

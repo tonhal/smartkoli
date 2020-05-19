@@ -262,6 +262,7 @@
     <script>
     $(document).ready( function() {
         $('#date').val(moment().format('YYYY-MM-DD'));
+        $('#nav-laundries').css('font-weight','bold');
     });
     </script>
 @endsection

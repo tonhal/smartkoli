@@ -22,7 +22,7 @@
                     <form action="mouse" method="post">
                         @csrf
                         @method('patch')
-                        <button type="submit" class="btn btn-block btn-secondary mt-2" data-toggle="tooltip" data-placement="bottom" title="Számláló">
+                        <button type="submit" class="btn btn-block btn-secondary mt-2" data-toggle="tooltip" data-placement="bottom" title="Számláló nullázása">
                             <img src="{{ asset('images/icons/mouse.png') }}" alt="Little mouse">
                             <br>Egeret láttam!
                         </button>
