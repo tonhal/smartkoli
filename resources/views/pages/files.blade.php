@@ -142,6 +142,13 @@
         </div>
     </div>
 
+    <script>
+        $(document).ready( function() {
+            $('#date').val(moment().format('YYYY-MM-DD'));
+            $('#nav-files').css('font-weight','900');
+        });
+    </script>
+
 @endsection
 
 <!-- FOOTER ------------->

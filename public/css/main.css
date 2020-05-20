@@ -1,0 +1,28 @@
+/* MY CSS */
+
+#mandak-logo {
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 60px;
+}
+  
+.icon {
+    margin-right: 0.4em;
+}
+  
+.card {
+    height: 100%;
+}
+  
+.table-centered td, .table-centered th {
+    text-align: center;
+}
+  
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+}

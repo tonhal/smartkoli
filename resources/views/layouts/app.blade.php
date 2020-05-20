@@ -69,19 +69,19 @@
                         <!-- Menu items -->
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('laundries') }}">
+                                <a class="nav-link" id="nav-laundries" href="{{ route('laundries') }}">
                                     <span class='icon' style="color: #3490dc"><i class="fas fa-tshirt"></i></span><span id="laundry-nav-text">Mosások</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('guests') }}">
+                                <a class="nav-link" id="nav-guests" href="{{ route('guests') }}">
                                     <span class='icon' style="color:hsl(171, 100%, 41%)"><i class="fas fa-bed"></i></span><span id="guest-nav-text">Vendégtáblázat</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('files') }}">
+                                <a class="nav-link" id="nav-files" href="{{ route('files') }}">
                                     <span class='icon' style="color: #28a745"><i class="fas fa-file-alt"></i></span><span id="file-nav-text">Feltöltések</span>
                                 </a>
                             </li>
