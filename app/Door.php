@@ -19,8 +19,6 @@ class Door extends Model
 
         $old_rule = DB::table('user_door')->where('user_id', $user_id)->where('door_id', $door_id)->first();
 
-        //dd([$door_id, $old_rule, $new_rule]);
-
         if($new_rule) {
 
             if(!$old_rule) {

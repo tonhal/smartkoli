@@ -101,7 +101,6 @@
                                 </li>
                             @endif
                         @else
-                            <!--
                             @if(auth()->user()->isadmin == 1)
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -115,7 +114,6 @@
                                     </div>
                                 </li>
                             @endif
-                            -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span class='icon'><i class="fas fa-user"></i></span><span>{{ Auth::user()->name }}</span><span class="caret"></span>
