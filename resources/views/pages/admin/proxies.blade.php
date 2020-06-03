@@ -26,8 +26,35 @@
                             <th scope="col">Proxy #</th>
                             @foreach ($doors as $door)
                                 <th scope="col"><span>{{ $door->name }}</span>
-                                    <a href="#" data-toggle="modal" data-target="#delete-door-modal" data-doorid="{{ $door->id }}" class="delete-door-link"><span class="ml-2" style="color:crimson"><i class="fas fa-trash-alt"></i></span></a>
+                                    <a href="#" data-toggle="modal" data-target="#delete-door-modal-{{ $door->id }}" class="delete-door-link"><span class="ml-2" style="color:crimson"><i class="fas fa-trash-alt"></i></span></a>
                                 </th>
+
+                                <!-- begin: Delete Door Modal -->
+                                <div class="modal fade" id="delete-door-modal-{{ $door->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Ajtó törlése</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Biztosan törölni akarod ezt az ajtót: {{ $door->name }}?
+                                                Ezzel törlöd az összes rá vonatkozó proxy szabályt is.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                                                <form id="delete-door-form" action="{{ route('deleteDoor', $door->id) }}" method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" id="delete-modal-delete-button" class="btn btn-danger">Törlés</a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end: Delete Door Modal -->
                             @endforeach
                             <th scope="col">Szerkesztés</th>
                         </thead>
@@ -43,8 +70,68 @@
                                             <td><i class="fas fa-times-circle" style="color:red"></i></td>
                                         @endif
                                     @endforeach
-                                    <td><button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#edit-proxy-modal">Szerkesztés</td>
+                                    <td><button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#edit-proxy-modal-{{ $user->id }}">Szerkesztés</td>
                                 </tr>
+
+                                <!-- begin: Edit Proxy Modal -->
+                                <div class="modal fade" id="edit-proxy-modal-{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Proxy szerkesztése</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="{{ route('editProxy', $user->id) }}" method="post">
+                                                @csrf
+                                                @method('patch')
+                                                <div class="modal-body">
+                                                    @forelse($doors as $door)
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input" id="door-toggle-{{ $door->id }}" name="door[{{ $door->id }}]" value="on" @if(in_array($user->id, $door->auth)) checked @endif>
+                                                            <label class="custom-control-label" for="door-toggle-{{ $door->id }}">{{ $door->name }}</label>
+                                                        </div>
+                                                    @empty
+                                                        <p>Ahhoz, hogy modósítsd a proxy szabályokat, adj hozzá legalább egy ajtót.</p>
+                                                    @endforelse
+                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#delete-proxy-modal-{{ $user->id }}">Törlés</button>
+                                                    <button type="submit" class="btn btn-primary">Mentés</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end: Edit Proxy Modal -->
+
+                                <!-- begin: Delete Proxy Modal -->
+                                <div class="modal fade" id="delete-proxy-modal-{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Ajtó törlése</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Biztosan törölni akarod {{ $user->name }} proxy-ját?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+                                                <form class="delete-proxy-form" action="{{ route('deleteProxy', $user->id )}}" method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Törlés</a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end: Delete Proxy Modal -->
                             @empty
                                 <tr><td colspan="{{ count($doors) + 3}}">Még nem adtál senkihez sem proxyt.</td></tr>
                             @endforelse
@@ -96,60 +183,6 @@
     </div>
     <!-- end: New Proxy Modal -->
 
-    <!-- begin: Edit Proxy Modal -->
-    <div class="modal fade" id="edit-proxy-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Proxy szerkesztése</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!-- form -->
-                    <div class="modal-body">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                            <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-                          </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#delete-proxy-modal">Törlés</button>
-                        <button type="submit" class="btn btn-primary">Mentés</button>
-                    </div>
-                <!-- form -->
-            </div>
-        </div>
-    </div>
-    <!-- end: Edit Proxy Modal -->
-
-    <!-- begin: Delete Proxy Modal -->
-    <div class="modal fade" id="delete-proxy-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Ajtó törlése</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Biztosan törölni akarod a felhasználó proxy-ját?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
-                    <form id="delete-proxy-form" action="" method="post">
-                        @method('patch')
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Törlés</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end: Delete Proxy Modal -->
-
     <!-- begin: New Door Modal -->
     <div class="modal fade" id="new-door-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -160,7 +193,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="/admin/proxies/door/new" method="post">
+                <form action="{{ route("newDoor") }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -177,43 +210,6 @@
         </div>
     </div>
     <!-- end: New Door Modal -->
-
-    <!-- begin: Delete Door Modal -->
-    <div class="modal fade" id="delete-door-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Ajtó törlése</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Biztosan törölni akarod ezt az ajtót? 
-                    Ezzel törlöd az összes rá vonatkozó proxy szabályt is.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
-                    <form id="delete-door-form" action="" method="post">
-                        @method('delete')
-                        @csrf
-                        <button type="submit" id="delete-modal-delete-button" class="btn btn-danger">Törlés</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end: Delete Door Modal -->
-
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".delete-door-link").forEach(link => {
-                link.addEventListener("click", () => {
-                    document.getElementById("delete-door-form").setAttribute("action", "/admin/proxies/door/" + link.dataset.doorid + "/delete");
-                }); 
-            });
-        });
-    </script>
 @endsection
 
 <!-- FOOTER ------------->

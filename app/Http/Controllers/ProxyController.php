@@ -13,7 +13,7 @@ class ProxyController extends Controller
 
         abort_unless(auth()->user()->isadmin == 1, 403);
 
-        $doors = DB::table('doors')->select('id','name')->get()->toArray();
+        $doors = Door::getAllDoors();
 
         foreach($doors as $door) {
             $door->auth = array();
@@ -45,13 +45,39 @@ class ProxyController extends Controller
 
         abort_unless(auth()->user()->isadmin == 1, 403);
 
-        /* !!! HANDLE THE SITUATION WHERE THIS USER ALREADY HAS A PROXY */
+        /* !!! MISSING WARNING !!!
+         * HANDLE THE SITUATION WHERE THIS USER ALREADY HAS A PROXY 
+         */
 
-        DB::table('users')
-            ->where('id', $request->userid)
-            ->update(['proxy' => $request->proxycode]);
+        $user = User::find($request->userid);
+        $user->proxy = $request->proxycode;
+        $user->save();
 
         return redirect('/admin/proxies');
+    }
+
+    public function editProxy(Request $request, $user_id) {
+
+        $doors = Door::getAllDoors();
+        
+        foreach($doors as $door) {
+
+            Door::setDoorRule(isset($request->door[$door->id]), $door->id, $user_id);
+            
+        }
+
+        return redirect('/admin/proxies');   
+    }
+
+    public function deleteProxy(Request $request, $user_id) {
+
+        abort_unless(auth()->user()->isadmin == 1, 403);
+
+        $user = User::find($user_id);
+        $user->proxy = null;
+        $user->save();
+
+        return redirect('/admin/proxies');        
     }
 
     /*
@@ -68,11 +94,11 @@ class ProxyController extends Controller
     }
 
 
-    public function deleteDoor(Request $request, $id) {
+    public function deleteDoor(Request $request, $door_id) {
 
         abort_unless(auth()->user()->isadmin == 1, 403);
 
-        Door::destroy($id);
+        Door::destroy($door_id);
 
         return redirect('/admin/proxies');
     }
