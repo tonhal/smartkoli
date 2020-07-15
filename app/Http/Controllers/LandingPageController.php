@@ -45,6 +45,7 @@ class LandingPageController extends Controller
             ->join('users','users.id','=','guests.user_id')
             ->select('users.name as name')
             ->whereRaw("DATE(arrival) = ?", [$today])
+            ->where("guests.guestroom", 1)
             ->first();
 
         if($current_guestroom === null) {
