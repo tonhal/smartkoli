@@ -25,6 +25,9 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/guests', 'GuestController@index')->name('guests');
     Route::post('/guests/new', 'GuestController@insert')->name('newGuest');
     Route::delete('/guests/{id}/delete', 'GuestController@delete')->name('deleteGuest');
+
+    // Shopping
+    Route::get('/shopping', 'PageController@ShoppingPage')->name('shopping');
     
     // Files
     Route::get('/files', 'FileController@index')->name('files');

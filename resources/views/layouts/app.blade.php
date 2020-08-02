@@ -81,6 +81,12 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link" id="nav-guests" href="{{ route('shopping') }}">
+                                    <span class='icon' style="color:hsl(171, 100%, 41%)"><i class="fas fa-bed"></i></span><span id="guest-nav-text">Bevásárlólista</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" id="nav-files" href="{{ route('files') }}">
                                     <span class='icon' style="color: #28a745"><i class="fas fa-file-alt"></i></span><span id="file-nav-text">Feltöltések</span>
                                 </a>
