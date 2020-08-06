@@ -25,6 +25,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/guests', 'GuestController@index')->name('guests');
     Route::post('/guests/new', 'GuestController@insert')->name('newGuest');
     Route::delete('/guests/{id}/delete', 'GuestController@delete')->name('deleteGuest');
+
+    // Shopping
+    Route::get('/shopping', 'PageController@ShoppingPage')->name('shopping');
+    Route::get('/shopping/items', 'ShoppingController@getShoppingItems')->name('getItems');
+    Route::post('/shopping/items/new', 'ShoppingController@addNewShoppingItems')->name('newItems');
+    Route::patch('/shopping/items/edit/{item_id}', 'ShoppingController@changeShoppingItem')->name('changeItem');
     
     // Files
     Route::get('/files', 'FileController@index')->name('files');

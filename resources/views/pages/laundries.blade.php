@@ -13,7 +13,7 @@
 
     <div class="row">
         <article class="col-md-6 my-2">
-            <div class="card">
+            <div class="card h-100">
                 <h5 class="card-header">Új mosás</h5>
                 <div class="card-body">
                     <form id="newLaundryForm" action="javascript:newLaundry()">
@@ -140,7 +140,7 @@
     <!-- ------ TÁBLÁZAT --------------------------------------------------------------------------------------------->    
 
         <article class="col-md-6 my-2">
-            <div class="card">
+            <div class="card h-100">
                 <h5 class="card-header">Közelgő mosásaim</h5>
                 <div class="card-body table-responsive">
                     <table class="table table-hover table-centered">

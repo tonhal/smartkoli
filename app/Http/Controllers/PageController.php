@@ -8,6 +8,17 @@ use DateTime;
 
 class PageController extends Controller
 {
+
+    public function ShoppingPage() {
+
+        return view('pages.shopping');
+
+    }
+
+    /**
+     * ADMIN
+     */
+
     public function AdminDashboard() {
 
         abort_unless(auth()->user()->isadmin == 1, 403);
