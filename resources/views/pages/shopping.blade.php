@@ -49,6 +49,12 @@
 
 @section('scripts-body')
     <script>
+        $(document).ready( function() {
+            $('#nav-shopping').css('font-weight','bold');
+        });
+    </script>
+
+    <script>
         Vue.component('shopping-item', {
             delimiters: ['[[', ']]'],
             props: ['name'],

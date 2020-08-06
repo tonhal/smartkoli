@@ -75,7 +75,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-guests" href="{{ route('shopping') }}">
+                                <a class="nav-link" id="nav-shopping" href="{{ route('shopping') }}">
                                     <span class='icon' style="color:#385D79"><i class="fas fa-shopping-basket"></i></span><span id="guest-nav-text">Bevásárlólista</span>
                                 </a>
                             </li>
