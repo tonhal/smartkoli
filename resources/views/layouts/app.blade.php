@@ -75,14 +75,14 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-guests" href="{{ route('guests') }}">
-                                    <span class='icon' style="color:hsl(171, 100%, 41%)"><i class="fas fa-bed"></i></span><span id="guest-nav-text">Vendégtáblázat</span>
+                                <a class="nav-link" id="nav-guests" href="{{ route('shopping') }}">
+                                    <span class='icon' style="color:#385D79"><i class="fas fa-shopping-basket"></i></span><span id="guest-nav-text">Bevásárlólista</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-guests" href="{{ route('shopping') }}">
-                                    <span class='icon' style="color:hsl(171, 100%, 41%)"><i class="fas fa-bed"></i></span><span id="guest-nav-text">Bevásárlólista</span>
+                                <a class="nav-link" id="nav-guests" href="{{ route('guests') }}">
+                                    <span class='icon' style="color:#00D1B2"><i class="fas fa-bed"></i></span><span id="guest-nav-text">Vendégtáblázat</span>
                                 </a>
                             </li>
 

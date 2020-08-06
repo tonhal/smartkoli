@@ -28,6 +28,9 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
     // Shopping
     Route::get('/shopping', 'PageController@ShoppingPage')->name('shopping');
+    Route::get('/shopping/items', 'ShoppingController@getShoppingItems')->name('getItems');
+    Route::post('/shopping/items/new', 'ShoppingController@addNewShoppingItems')->name('newItems');
+    Route::patch('/shopping/items/edit/{item_id}', 'ShoppingController@changeShoppingItem')->name('changeItem');
     
     // Files
     Route::get('/files', 'FileController@index')->name('files');

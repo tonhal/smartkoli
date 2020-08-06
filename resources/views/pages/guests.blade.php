@@ -14,7 +14,7 @@
 
     <div class="row">
         <article class="col-md-6 my-2">
-            <div class="card">
+            <div class="card h-100">
                 <h5 class="card-header">Új vendégek</h5>
                 <div class="card-body">
                     <form id='newGuestForm' action='javascript:newGuest()'>
@@ -102,7 +102,7 @@
     <!-- ------ TÁBLÁZAT --------------------------------------------------------------------------------------------->
     
         <article class="col-md-6 my-2">
-            <div class="card">
+            <div class="card h-100">
                 <h5 class="card-header">Az én vendégeim</h5>
                 <div class="card-body table-responsive">
                     <table id="yourGuests" class="table table-hover table-centered">

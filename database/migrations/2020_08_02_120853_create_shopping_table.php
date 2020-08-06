@@ -17,7 +17,7 @@ class CreateShoppingTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedBigInteger('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->boolean('is_purchased');
+            $table->boolean('is_purchased')->default(0);
             $table->timestamps();
         });
     }
