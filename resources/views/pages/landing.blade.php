@@ -15,7 +15,7 @@
             </div>
         </article>
         <article class="col-md-3">
-            <div class="card">
+            <div class="card h-100">
                 <h4 class="card-header">Egérfigyelő</h4> 
                 <div id="mouse-card-body" class="card-body">
                     <span class="display-2 align-middle">{{ $days_since_last_mouse }}</span><br>nap egértámadás nélkül.
@@ -34,7 +34,7 @@
 
     <div class="row mt-5">
         <article class="col-md-4">
-            <div class="card"> 
+            <div class="card h-100"> 
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Mosógép 
                         @if(!$current_laundry)
@@ -64,7 +64,7 @@
         </article>
 
         <article class="col-md-4">
-            <div class="card"> 
+            <div class="card h-100"> 
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Vendégek</h4>
                     <p class="text-muted">Vendégszoba:</p>
@@ -83,7 +83,7 @@
         </article>
 
         <article class="col-md-4">
-            <div class="card"> 
+            <div class="card h-100"> 
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Feltöltések</h4>
                     <div class="text-center">
