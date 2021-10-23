@@ -65,6 +65,17 @@
             </div>
         </div>
     </div>
+    
+     <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Fiók megszüntetése és adatok törlése</div>
+                <div class="card-body">
+                    <p>Az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény alapján a felhasználónak joga van a fiókjának és a személyes adatainak törlésére, amit az adatkezelőnek 15 napon belül teljesíteni kell. A SmartKoli alkalmazásban a fiók és a személyes adatok azonnali és végleges törlésére is lehetőség van bejelentkezés után. A folyamat elindításához kattints az oldal alján az adatkezelési tájékoztatóra, majd a felugró oldal legalján a "Fiókom és személyes adataim törlése" gombra.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 
